@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>The retarded windows 10 auto-download software (Updated: 2017-09-06)</b></h1>
+
+<p class="article-metadata text-muted">
+  16 June 2016 -  
+  <b>
+  
+  
+    3 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">Privacy</span>
+    
+      <span class="badge badge-pill text-primary border border-primary">Windows</span>
+    
+  
+
+</p>
+
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Now the new "feature" of windows 10 is automatic download to your computer. There's a shitload of CRAP that microsoft decided to push into your windows without your consent. And guess what? If you uninstall, they'll install again and again!</span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">All the extra uninstalable crap in windows 10 isn't enough, microsoft? WTF?</span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
+<span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strike>Well then, just stop with this nonsense, open regedit and go to this key:</strike>&nbsp;(Do this one and continue reading):</span></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
+<i><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent</span></i></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><i><br /></i>
+Create a new 32-bit DWORD value named <i style="font-weight: bold;">DisableWindowsConsumerFeatures</i>&nbsp;and set its value data to 1</span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
+<span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Or use this with an administrative prompt:</span></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
+<i><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /d 1 /t REG_DWORD /f</span></i></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
+<span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><span style="font-size: 14px; line-height: 24px;">Source: <a href="http://winaero.com/blog/fix-windows-10-installs-apps-like-candy-crush-soda-saga-automatically/" target="_blank">WinAreo</a></span></span></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
+<b>Update:&nbsp;</b><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">Microsoft just updated the way the send you spam apps. Wonderful! Now the last register alone can't stop the spam. Here the other ones you need to change:</span></span></span><br />
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
+<i style="font-size: small;">reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “ContentDeliveryAllowed” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “OemPreInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEverEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SilentInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SubscribedContentEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
+<span style="background-color: white;"><i style="font-size: small;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg delete “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps” /f</span></i></span><br />
+<div>
+<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
+<span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">If doing this still doesn't work, try&nbsp;</span><a href="http://winaero.com/blog/stop-windows-10-anniversary-update-from-installing-candy-crush-and-other-unwanted-apps/" style="font-family: &quot;open sans&quot;, helvetica, arial, sans-serif;" target="_blank">this</a><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">. Some new updates will call just "Microsoft Content" is the same "Spotlight" in the link.</span></span></span></div>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>

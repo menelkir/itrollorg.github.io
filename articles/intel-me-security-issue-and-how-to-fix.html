@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Intel ME Security Issue and how to fix it</b></h1>
+
+<p class="article-metadata text-muted">
+  06 September 2017 -  
+  <b>
+  
+  
+    3 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">Privacy</span>
+    
+      <span class="badge badge-pill text-primary border border-primary">Security</span>
+    
+  
+
+</p>
+
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Intel ME is a coprocessor integrated in all post-2006 Intel boards, for which this&nbsp;<a href="https://libreboot.org/faq.html#intelme" style="box-sizing: border-box; color: #0366d6;">Libreboot page</a>&nbsp;has an excellent description. The main component of Intel ME is Intel AMT, and I suggest you to read&nbsp;<a href="https://en.wikipedia.org/wiki/Intel_Active_Management_Technology" style="box-sizing: border-box; color: #0366d6;">this Wikipedia page</a>&nbsp;for more information about it. In short, Intel ME is an irremovable environment with an obscure signed proprietary firmware, with full network and memory access, which poses a serious security threat. Even when disabled from the BIOS settings, Intel ME is active: the only way to be sure it is disabled is to remove its firmware from the flash chip.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Before Nehalem (ME version 6, 2008/2009) the ME firmware could be removed completely from the flash chip by setting a couple of bits inside the flash descriptor, without the need to reverse-engineer the ME firmware.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Starting from Nehalem the Intel ME firmware can't be removed anymore: without a valid firmware the PC shuts off forcefully after 30 minutes. This project is an attempt to remove as much code as possible from such firmware without falling into the 30 minutes recovery mode.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">me_cleaner currently works on most architectures, see&nbsp;<a href="https://github.com/corna/me_cleaner/wiki/me_cleaner-status" style="box-sizing: border-box; color: #0366d6; text-decoration-line: none;">me_cleaner status</a>&nbsp;(or&nbsp;<a href="https://github.com/corna/me_cleaner/issues/3" style="box-sizing: border-box; color: #0366d6; text-decoration-line: none;">its discussion</a>) for more info about them. me_cleaner works also on the TXE and SPS firmware.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">If you want to understand how me_cleaner works, you can read the&nbsp;<a href="https://github.com/corna/me_cleaner/wiki/How-does-it-work%3F" style="box-sizing: border-box; color: #0366d6; text-decoration-line: none;">"How does it work?" page</a>.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">If you want to apply me_cleaner on your platform I suggest you to read the&nbsp;<a href="https://github.com/corna/me_cleaner/wiki/How-does-it-work%3F" style="box-sizing: border-box; color: #0366d6; text-decoration-line: none;">"How does it work?" page</a>&nbsp;and then follow the guide&nbsp;<a href="https://github.com/corna/me_cleaner/wiki/How-to-apply-me_cleaner" style="box-sizing: border-box; color: #0366d6; text-decoration-line: none;">"How to apply me_cleaner"</a>.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">For pre-Skylake firmware (ME version &lt; 11) this tool removes almost everything, leaving only the two fundamental modules needed for the correct boot, ROMP and BUP. The code size is reduced from 1.5 MB (non-AMT firmware) or 5 MB (AMT firmware) to ~90 kB of compressed code.</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Starting from Skylake (ME version &gt;= 11) the ME subsystem and the firmware structure have changed, requiring substantial changes in me_cleaner. The fundamental modules required for the correct boot are now four (rbe, kernel, syslib and bup) and the minimum code size is ~300 kB of compressed code (from the 2 MB of the non-AMT firmware and the 7 MB of the AMT one).</span></span></span><br />
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">This project is based on the work of the community; in particular I thank Igor Skochinsky, for the core information about Intel ME and its firmware structure, and Federico Amedeo Izzo, for its help during the study of Intel ME.</span></span></span></div>
+</div>
+<div style="box-sizing: border-box; color: #24292e; text-align: left;">
+<div style="text-align: justify;">
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"></span></span></div>
+</div>
+<div style="box-sizing: border-box; color: #24292e; text-align: left;">
+<div style="text-align: justify;">
+<span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Source, author and tools: <a href="https://github.com/corna/me_cleaner" target="_blank">Github</a></span></span></span></div>
+</div>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>

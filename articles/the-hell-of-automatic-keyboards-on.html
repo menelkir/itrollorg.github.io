@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>The HELL of automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)</b></h1>
+
+<p class="article-metadata text-muted">
+  22 May 2016 -  
+  <b>
+  
+  
+    3 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">Windows</span>
+    
+  
+
+</p>
+
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Probably everyone in the same situation are thinking about this crap...</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Actually, I have a Toshiba Qosmio with a windows machine and after the "free" upgrade to windows 10, I see that even my notebook with a US-English Windows, US-English Keyboard, and yes US configurations for everything, give me automatic keyboards because I'm in Brazil (WTF?). Not sufficient, that's a ridiculous arbitrary retarded feature, because he gives not one, but, FOUR LAYOUTS!! WTF? (US, US-English, ABNT, ABNT2). And guess what? He changes from one to another automagically, just to mess up your work, your brains, your life and everything else, because yeah, you're using windows so fuck you!</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;After mining google, someone had the solution <a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/" target="_blank">here</a>.</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Simply change this thing on registry (because windows doesn't want to give you an option to change THIS SIMPLE THING):</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<b><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Disable the obnoxious "Auto Detect Keyboard Layout":</span></b></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout]</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">"IgnoreRemoteKeyboardLayout"=dword:00000001</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Administrative command version:</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout" /v&nbsp;IgnoreRemoteKeyboardLayout&nbsp;/d&nbsp;1 /t REG_DWORD /f</span></i></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<b><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">If the language crapbar still shows, use this DWORD:</span></b></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">[HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar]</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">"ShowStatus"=dword:00000003</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Administrative command version:</span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar" /v&nbsp;ShowStatus&nbsp;/d 3 /t REG_DWORD /f</span></i></div>
+<div>
+<div style="text-align: justify;">
+<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></i></div>
+</div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
+<div style="text-align: justify;">
+<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Source:&nbsp;<a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/">http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/</a></span></div>
+<div style="text-align: justify;">
+<br /></div>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>

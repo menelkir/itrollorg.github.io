@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>AIX Instalation pre-req (5.3 and 6.1)</b></h1>
+
+<p class="article-metadata text-muted">
+  27 August 2009 -  
+  <b>
+  
+  
+    less than 1 min read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    
+  
+
+</p>
+
+Just some pre-req that I do in my AIX installations (I use some necessary Oracle reqs, just in case):<br />Ok.. just a warning, use at your own risk (all tunings are oracle and ibm based, so I'm not responsible if you mess the things up). After that, ask your customer for some different tunings, if needed.<br /><br />1) Verifications<br /><br />Gather all necessary information, such network configuration and partition configuration (if any specified) to accelerate the process.<br />Verify connections, cables, plug everything and take a look if display some error codes.<br />Verify if will be necessary some activation after the start-up process.<br /><br />2) Install options<br /><br />&nbsp;&nbsp;&nbsp; ON Trusted Computing Base<br />&nbsp;&nbsp;&nbsp; OFF CAPP e EAL4+ Technology<br />&nbsp;&nbsp;&nbsp; ON 64-bit Kernel<br />&nbsp;&nbsp;&nbsp; ON JFS2 File Systems<br />&nbsp;&nbsp;&nbsp; ON Graphics Software<br />&nbsp;&nbsp;&nbsp; OFF System backups to install in any device.<br /><br />3) Packages<br /><br />* Bundles: Server, App-Dev and Perfstat<br />* Extras: Openssh server and client<br />* Extra-packages:&nbsp; bos.adt.base, bos.adt.lib, bos.adt.libm, bos.cifs_fs.rte, bos.perf.libperfstat, bos.perf.perfstat, bos.perf.proctools<br /><br />4) Filesystem options<br /><br />* Mirror rootvg: <br /><br /># bosboot -B hdisk1<br /># extendvg rootvg hdisk1<br /># mirrorvg -m rootvg hdisk1<br /># bosboot -a<br /># bootlist -m normal hdisk0 hdisk1<br /><br />* Resize all filesystems like table below<br /><br />/ 1Gb<br />/usr 2Gb<br />/var 1Gb<br />/tmp 1Gb<br />/home 500Mb<br />swap 12Gb<br /><br />5) OS Parameters<br /><br />* AIO<br />min=10 and max=30<br /><br />* VMO<br />minperm%=5<br />maxclient%=90<br />maxperm%=90<br />minfree=960<br />maxfree=1088<br /><br />* IOO<br />sync_release_ilock=1<br /><br />* Change limits for default users file = -1<br />cpu = -1<br />data = -1<br />stack = -1<br />nofile = 65536<br />data = 256k stack = 256k<br />memory = 256k<br /><br />* Change the limit for usernames <br />chdev −l sys0 −a max_logname=18<br /><br />* Set ISNO for network cards <br />no -b -o use_isno=1<br /><br />* Large Page size <br />vmo -r -o lgpg_regions=256 -o lgpg_size=16777216<br />vmo -r -o lru_file_repage=0<br /><br />* Maxuproc <br />chdev -lsys0 -a maxuproc='4096'<br /><br />* Jumbo frames <br />smit chgenet<br /><br />...reboot.
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>

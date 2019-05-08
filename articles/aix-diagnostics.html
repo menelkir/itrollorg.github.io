@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>AIX Diagnostics</b></h1>
+
+<p class="article-metadata text-muted">
+  22 August 2007 -  
+  <b>
+  
+  
+    6 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    
+  
+
+</p>
+
+I have a personal diagnostic list to exactly make a QA (Quality Assurance) or to do a detailed diagnostic. 
+Its useful if you have a lot of machines to see. 
+<br />
+<!--more--><div style="direction: ltr;">
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: 1pt solid #a3a3a3; direction: ltr;"><tbody>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Model name</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsattr   -E -l sys0 | grep modelname</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+AIX Version</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+oslevel –fr</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Filesets</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+instfix -i | grep   AIX</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Processors</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsdev | grep proc</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Memory</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+svmon –G</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Disk Space</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsvg –o | lsvg –i</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Mirroring</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsvg –o | lsvg –i   –l</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Boot</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+bootlist –m normal   –o</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Hardware configuration</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lscfg</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Diagnostic</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+diag</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Users</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+cat /etc/passwd</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Detailed errorlog</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+errpt -a</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Inittab</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+cat /etc/inittab</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Dump device</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lslv –l   &lt;dump device&gt;</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Physical disks</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lspv</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Volume Groups</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsvg</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Logical volumes</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsvg –o | lsvg –i   –l</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Mount</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+mount</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Paging Space</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lsps –a</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Inetd</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+cat   /etc/inetd.conf</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Configured network interfaces</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+ifconfig –a</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+NFS</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+exportfs</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Kernel</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+bootinfo –y</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Multithread</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+smtctl</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+Filesets</div>
+</td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+lppchk –v</div>
+</td></tr>
+<tr><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 2.3256in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+<br />I/O and VM Diags</div>
+<br /></td><td style="border: 1pt solid #a3a3a3; padding: 4pt; vertical-align: top; width: 4.602in;"><br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+topas</div>
+<br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+vmstat 1 10</div>
+<br />
+<div style="font-family: Calibri; font-size: 12pt; margin: 0;">
+iostat 1 10</div>
+<br /></td></tr>
+</tbody></table>
+</div>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>

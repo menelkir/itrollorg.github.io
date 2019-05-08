@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tech, Gaming, and many other things">
+
+  <title>ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="//"><h5><b>ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link " href=" /about/ ">About</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Autenticating SQUID in Active Directory</b></h1>
+
+<p class="article-metadata text-muted">
+  03 September 2007 -  
+  <b>
+  
+  
+    4 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags:
+    
+      <span class="badge badge-pill text-primary border border-primary">Windows</span>
+    
+      <span class="badge badge-pill text-primary border border-primary">Linux</span>
+    
+      <span class="badge badge-pill text-primary border border-primary">BSD</span>
+    
+  
+
+</p>
+
+Here's is just a simple and fast way to configure a SQUID to authenticate in AD. It should works with any supported OS.
+<br>
+<br>
+
+
+<b>1. Requirements</b><br />Basic knowledge in Active Directory, Kerberos, Samba, Unix e Squid. And all packages related. The Microsoft Windows Server 2003® must be acessible by proxy server and *must* have WINS Server working.<br /><br />The linux server (any distro) must have installed this packages:<br /><ul>
+<li>&nbsp;&nbsp;&nbsp; Kerberos5 (clients, libs, services, servers, etc)</li>
+<li>&nbsp;&nbsp;&nbsp; SQUID (v2.6)</li>
+<li>&nbsp;&nbsp;&nbsp; Ntp</li>
+<li>&nbsp;&nbsp;&nbsp; Samba (with winbind)</li>
+</ul>
+<b>2. Introduction</b><br />We have two types of authentication:<br /><ol>
+<li>The NTLM Authentication is automatic, the proxy receives the connection requirement and authenticate using AD to make a login.</li>
+<li>The BASIC Authentication is the trivial authentication with user input.</li>
+</ol>
+The best point of NTLM Authentication is the fact of the proxy will be transparent to the user, even if the browser is closed.<br /><br /><b>3. Preparations</b><br /><br />The servers:<br /><br /><b>Server 1</b>: Domain Controller<br />&nbsp;&nbsp;&nbsp; Microsoft Windows Server 2003 Enterprise<br />&nbsp;&nbsp;&nbsp; atenas.lab.wtf.br<br />&nbsp;&nbsp;&nbsp; 10.0.0.4<br /><br /><b>Server 2</b>: Proxy<br />&nbsp;&nbsp;&nbsp; Any Linux Distribution<br />&nbsp;&nbsp;&nbsp; oslo.lab.wtf.br<br />&nbsp;&nbsp;&nbsp; 10.0.0.6<br /><br />First of all, edit /etc/hosts in your linux box:<br /><br /><i>10.0.0.60 oslo.lab.wtf.br oslo<br />10.0.0.4 atenas.lab.wtf.br atenas</i><br /><br />Now, edit the /etc/krb5.conf:<br /><br /><span style="font-family: &quot;Courier New&quot;, Courier, monospace;">[libdefaults]<br />default_realm = LAB.WTF.BR krb4_config = /etc/krb.conf<br />krb4_realms = /etc/krb.realms kdc_timesync = 1<br />ccache_type = 4<br />forwardable = true<br />proxiable = true<br />v4_instance_resolve = false<br />clockskew = 300<br /><br />v4_name_convert = {<br />&nbsp;&nbsp;&nbsp; host = {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; rcmd = host<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ftp = ftp<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; plain = {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; something = something-else<br />&nbsp;&nbsp;&nbsp; }<br />}<br /><br />fcc-mit-ticketflags = true<br /><br />[realms]<br />LAB.WTF.BR = {<br />&nbsp;&nbsp;&nbsp; kdc = atenas.lab.wtf.br<br />&nbsp;&nbsp;&nbsp; default_domain = lab.wtf.br<br />&nbsp;&nbsp;&nbsp; admin_server = atenas.lab.wtf.br<br />}<br /><br />[login]<br />krb4_convert = true<br />krb4_get_tickets = false<br /><br />[logging]<br />kdc = FILE:/var/log/krb5kdc.log<br />admin_server = FILE:/var/log/kadmin.log<br />default = FILE:/var/log/krb5lib.log<br /><br />[domain_realm]<br />.lab.wtf.br = LAB.WTF.BR<br />lab.wtf.br = LAB.WTF.BR</span><br /><br />We need to sync the clocks. First, let's sync the linux server:<br /><br /><i># ntpdate pool.ntp.org</i><br /><br />And then, the windows:<br /><br /><i>C:\&gt; net time /setsntp:pool.ntp.org<br />C:\&gt; net stop w32time &amp; net start w32time</i><br /><br />Now edit /etc/nsswitch.conf, and modify this lines...<br /><br /><i>passwd: compat<br />group: compat</i><br /><br />...to this...<br /><br /><i>passwd: compat winbind<br />group: compat winbind</i><br /><br /><b>4. Samba/Winbind</b><br /><br />This is the /etc/samba/smb.conf used:<br /><br /><span style="font-family: &quot;Courier New&quot;, Courier, monospace;">[global]<br />workgroup = PMP<br />netbios name = OSLO<br />server string = OSLO (Samba Server)<br />load printers = no<br />log file = /var/log/samba/log.%m<br />max log size = 500<br />realm = LAB.WTF.BR<br />security = domain<br />auth methods = winbind<br />winbind separator = /<br />encrypt passwords = yes<br />winbind cache time = 15<br />winbind enum users = yes<br />winbind enum groups = yes<br />winbind use default domain = yes<br />idmap uid = 10000-20000<br />idmap gid = 10000-20000<br />local master = no<br />os level = 233<br />domain master = no<br />preferred master = no<br />domain logons = no<br />wins server = 10.0.0.4<br />dns proxy = no ldap ssl = no</span><br /><br />After configured, restart SAMBA and WINBIND services.<br />Lets get the proxy server inside the AD:<br /><br /><i># net ads join –U Administrator –S lab.wtf.br</i><br />After enter the password, you’ll see something like this:<br /><br /><i># net ads join –U Administrator –S lab.wtf.br<br />Administrator’s password:<br />Using short domain name – PMP<br />Joined ‘OSLO’ to realm ‘LAB.WTF.BR’</i><br />You can verify if you’re connected using this commands:<br /><i># wbinfo –t</i><br />Verify connections:<br /><i># wbinfo –u</i><br />List all users in AD<br /><i># wbinfo –g</i><br /><b>5. Preparing SQUID</b><br />Modify /etc/squid/squid.conf like this:<br /><br /><span style="font-family: &quot;Courier New&quot;, Courier, monospace;">http_port 3128<br />hierarchy_stoplist cgi-bin ?<br />acl QUERY urlpath_regex cgi-bin \?<br />cache deny QUERY<br />acl apache rep_header Server ^Apache<br />broken_vary_encoding allow apache<br />access_log /var/log/squid/access.log squid<br />refresh_pattern ^ftp: 1440 20% 10080<br />refresh_pattern ^gopher: 1440 0% 1440<br />refresh_pattern . 0 20% 4320<br />auth_param ntlm program /usr/bin/ntlm_auth --helper-protocol=squid-2.5-ntlmssp<br />auth_param ntlm use_ntlm_negotiate off<br />auth_param ntlm children 60<br />auth_param ntlm max_challenge_reuses 0<br />auth_param ntlm max_challenge_lifetime 5 minutes<br />auth_param basic program /usr/bin/ntlm_auth --helper-protocol=squid-2.5-ntlmssp<br />auth_param basic use_ntlm_negotiate off<br />auth_param basic children 60<br />auth_param basic realm Type your USER/PASS<br />auth_param basic max_challenge_reuses 0<br />auth_param basic max_challenge_lifetime 5 minutes<br />acl all src 0.0.0.0/0.0.0.0<br />acl manager proto cache_object<br />acl localhost src 127.0.0.1/255.255.255.255<br />acl to_localhost dst 127.0.0.0/8<br />acl SSL_ports port 443<br />acl Safe_ports port 80 # http<br />acl Safe_ports port 21 # ftp<br />acl Safe_ports port 443 # https<br />acl Safe_ports port 70 # gopher<br />acl Safe_ports port 210 # wais<br />acl Safe_ports port 1025-65535 # unregistered ports<br />acl Safe_ports port 280 # http-mgmt<br />acl Safe_ports port 488 # gss-http<br />acl Safe_ports port 591 # filemaker<br />acl Safe_ports port 777 # multiling http<br />acl CONNECT method CONNECT<br />acl authenticated proxy_auth REQUIRED<br />http_access allow authenticated<br />http_reply_access allow all<br />icp_access allow all<br />coredump_dir /var/cache/squid</span><br /><br /><b>6. Tests</b><br />Go to some box using windows, configure the browser to use the new proxy and try to access some web page. After this, look in /var/log/squid/access.log and see if the user are logging.<br /><br />If you have some problems, try using your proxy with default configurations.
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
+    <i class="fab fa-1x fa-twitter"></i>
+  </a>
+  
+
+  
+  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
+    <i class="fas fa-1x fa-envelope"></i>
+  </a>
+  
+
+  
+  <a class="social github mx-1" href="https://www.github.com/menelkir">
+    <i class="fab fa-1x fa-github"></i>
+  </a>
+  
+
+  
+  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
+    <i class="fab fa-1x fa-gitlab"></i>
+  </a>
+  
+
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+
+</body>
+
+</html>
