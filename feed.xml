@@ -5,7 +5,7 @@
         <title>Daniel Menelkir</title>
         <link>http://localhost:4000</link>
         <description>Daniel Menelkir</description>
-        <lastBuildDate>Mon, 13 May 2019 16:18:48 -0300</lastBuildDate>
+        <lastBuildDate>Thu, 16 May 2019 00:42:27 -0300</lastBuildDate>
         
         <item>
             <title>Make syslog-ng at /dev/tty12 colorful</title>
@@ -22,7 +22,7 @@
         </item>
         
         <item>
-            <title>Prevent apple OS from creating .DS_Store and other bullshits</title>
+            <title>Prevent apple OS from creating .DS_Store and other stuff</title>
             <link>
                 http://localhost:4000/articles/prevent-apple-os-from-creating-dsstore
             </link>
@@ -97,12 +97,12 @@
         </item>
         
         <item>
-            <title>The retarded windows 10 auto-download software (Updated: 2017-09-06)</title>
+            <title>The windows 10 auto-download software</title>
             <link>
                 http://localhost:4000/articles/the-retarded-windows-10-auto-download
             </link>
             <description>
-                &lt;span style=&quot;background-color: white;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;helvetica neue&amp;quot; , &amp;quot;arial&amp;quot; , &amp;quot;helvetica&amp;quot; , sans-serif;&quot;&gt;Now the new &quot;feature&quot; of windows 10 is automatic download to your computer. There&#39;s a shitload of CRAP that microsoft decided to push into your windows without your consent. An...
+                &lt;span style=&quot;background-color: white;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;helvetica neue&amp;quot; , &amp;quot;arial&amp;quot; , &amp;quot;helvetica&amp;quot; , sans-serif;&quot;&gt;Now the new &quot;feature&quot; of windows 10 is automatic download to your computer. There&#39;s a load of CRAP that microsoft decided to push into your windows without your consent. And gu...
             </description>
             <pubDate>Thu, 16 Jun 2016 18:24:00 -0300</pubDate>
             <guid>
@@ -128,7 +128,7 @@
         </item>
         
         <item>
-            <title>How to stop Microsoft messing up your privacy in Windows 10 (updated 16/Jun/2016)</title>
+            <title>How to stop Microsoft messing up your privacy in Windows 10</title>
             <link>
                 http://localhost:4000/articles/things-to-disable-on-windows-10
             </link>

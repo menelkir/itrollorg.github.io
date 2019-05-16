@@ -9,7 +9,7 @@
     } ,
   
     {
-      "title"    : "Prevent apple OS from creating .DS_Store and other bullshits",
+      "title"    : "Prevent apple OS from creating .DS_Store and other stuff",
       "category" : "",
       "tags"     : "MacOS",
       "url"      : "/articles/prevent-apple-os-from-creating-dsstore",
@@ -49,7 +49,7 @@
     } ,
   
     {
-      "title"    : "The retarded windows 10 auto-download software (Updated: 2017-09-06)",
+      "title"    : "The windows 10 auto-download software",
       "category" : "",
       "tags"     : "Privacy, Windows",
       "url"      : "/articles/the-retarded-windows-10-auto-download",
@@ -65,7 +65,7 @@
     } ,
   
     {
-      "title"    : "How to stop Microsoft messing up your privacy in Windows 10 (updated 16/Jun/2016)",
+      "title"    : "How to stop Microsoft messing up your privacy in Windows 10",
       "category" : "",
       "tags"     : "Privacy, Windows",
       "url"      : "/articles/things-to-disable-on-windows-10",
