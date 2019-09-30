@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>AIX Clone</b></h1>
+
+<p class="article-metadata text-muted">
+  29 May 2012 -  
+  <b>
+  
+  
+    2 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#aix">
+      <span class="tag badge badge-pill text-primary border border-primary">AIX</span>
+    </a>
+    
+  
+
+</p>
+
+<p>Many people will already know how to do this, since there’s some (huge) machines you need lots of AIX Virtual Servers, and of course, you’ll not make thousands of installs (will you?).
+So a clone is the best option, you have two ways to do that:</p>
+
+<h4 id="1-first-method-alt_disk_install-recommended-and-supported">1. First method: alt_disk_install (recommended and supported)</h4>
+
+<p>Verify if you have all needed packages:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lslpp -l |grep bos.alt
+</code></pre></div></div>
+<p>Verify if all LVs have a copy in hdisk0:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in `lsvg -l rootvg |cut -f1 -d" "|grep -v rootvg|grep -v LV`; do lslv -l $i; done
+</code></pre></div></div>
+<p>Broke the mirror (if you have one):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unmirrorvg rootvg hdisk1
+reducevg rootvg hdisk1
+</code></pre></div></div>
+<p>Turn off the Quorum:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chvg -a'y' -Q'n' rootvg
+</code></pre></div></div>
+<p>Set the bootlist:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bootlist -m normal -o hdisk0
+</code></pre></div></div>
+<p>Recreate the boot image:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bosboot -ad hdisk0
+</code></pre></div></div>
+<p>Verify:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspv
+</code></pre></div></div>
+<p>Clone:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alt_disk_install -COB hdisk#
+</code></pre></div></div>
+<p>Verify the altinst_rootvg and remove the clone (double check it):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspv
+rmdev -Rdl hdisk#
+exportvg altinst_rootvg
+</code></pre></div></div>
+<p>Mirror your vg back:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extendvg rootvg hdisk1
+mirrorvg -m rootvg hdisk1
+bosboot -a
+bootlist -m normal hdisk0 hdisk1 
+</code></pre></div></div>
+
+<h4 id="2-second-method-vg-clone">2. Second method: VG Clone</h4>
+
+<p>Broke the mirror (if you have one):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unmirrorvg rootvg hdisk1
+</code></pre></div></div>
+<p>Turn off the Quorum:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chvg -a'y' -Q'n' rootvg
+</code></pre></div></div>
+<p>Set the bootlist:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bootlist -m normal -o hdisk0
+</code></pre></div></div>
+<p>Recreate the boot image:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bosboot -ad hdisk0
+</code></pre></div></div>
+<p>Verify:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspv
+</code></pre></div></div>
+<p>Clone:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extendvg rootvg hdisk#
+mirrorvg -m rootvg hdisk#
+bosboot -a
+bootlist -m normal hdisk0 hdisk#
+</code></pre></div></div>
+<p>Remove the second disk from VG, I mean the device (yes, do it):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rmdev -Rdl hdisk#
+</code></pre></div></div>
+<p>Now remove it from vg</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unmirrorvg rootvg hdisk#
+reducevg rootvg hdisk#
+</code></pre></div></div>
+<p>Remove physically the disk from the Virtual Server or the machine and redetect the device drivers:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cfgmgr
+</code></pre></div></div>
+<p>Recreate the rootvg mirror:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extendvg rootvg hdisk1
+mirrorvg -m rootvg hdisk1
+bosboot -a
+bootlist -m normal hdisk0 hdisk1 
+</code></pre></div></div>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2012-05-29-aix-clone.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

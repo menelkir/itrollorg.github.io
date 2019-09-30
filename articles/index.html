@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -77,11 +113,216 @@
 <div class="input-group mt-5 px-3">
   <input id="search-input" type="text" class="form-control search-box" placeholder="Search articles..">
   <div class="input-group-append">
-    <span class="input-group-text border border-primary bg-primary text-white"><i class="fas fa-search"></i></span>
+    <span class="input-group-text border border-primary bg-primary text-white">
+      <i class="fas fa-search"></i>
+    </span>
   </div>
+  <button class="btn btn-outline-primary ml-1" onclick="location.href = '/articles/tags';">
+    <i class="fas fa-tags"></i>
+  </button>
 </div>
 <ul class="px-3" id="results-container"></ul>
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
 <div class="card-group mt-2">
+
+  
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      <a href="/articles/recovery-freebsd-after-whatever-problem" class="article card border border-">
+        <div class="card-body text-dark">
+          <h3 class="card-title">Recovery a freebsd after whatever problem</h3>
+          <p class="card-text">
+            
+              <span class="badge badge-dark">FreeBSD</span>
+            
+          </p>
+          <p class="card-text">
+            
+              <p>If you had any trouble with your install (ndis module someone), there’s an easy way to fix it.</p> <ol> <li>Boot your pendrive/cdrom/dvd/whatever with the freebsd<small><i>  read more...</i></small>
+            
+          </p>
+        </div>
+        <div class="card-footer text-dark">
+          11 September 2019
+        </div>
+      </a>
+    </div>
+
+  
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      <a href="/articles/organizing-your-massive-collection" class="article card border border-">
+        <div class="card-body text-dark">
+          <h3 class="card-title">Organizing your massive collection of wallpapers</h3>
+          <p class="card-text">
+            
+              <span class="badge badge-dark">Linux</span>
+            
+              <span class="badge badge-dark">General Computing</span>
+            
+          </p>
+          <p class="card-text">
+            
+              <p>I have a directory filled with wallpapers that syncs with my devices, so I can use a random wallpaper (usually, change at boot or every<small><i>  read more...</i></small>
+            
+          </p>
+        </div>
+        <div class="card-footer text-dark">
+          05 September 2019
+        </div>
+      </a>
+    </div>
+
+  
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      <a href="/articles/cant-unlock-kde-session" class="article card border border-">
+        <div class="card-body text-dark">
+          <h3 class="card-title">Can't unlock KDE Session</h3>
+          <p class="card-text">
+            
+              <span class="badge badge-dark">Linux</span>
+            
+              <span class="badge badge-dark">Gentoo</span>
+            
+          </p>
+          <p class="card-text">
+            
+              <p>If for some reason you’re unable to unlock your desktop, then probably is the permissions of kcheckpass. You have two choices:</p> <ol> <li>Reinstall kde-plasma/kscreenlocker</li> <li>Check<small><i>  read more...</i></small>
+            
+          </p>
+        </div>
+        <div class="card-footer text-dark">
+          21 August 2019
+        </div>
+      </a>
+    </div>
+
+  
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      <a href="/articles/refind-efi-boot-manager" class="article card border border-">
+        <div class="card-body text-dark">
+          <h3 class="card-title">rEFInd EFI Boot Manager</h3>
+          <p class="card-text">
+            
+              <span class="badge badge-dark">Debian</span>
+            
+              <span class="badge badge-dark">Linux</span>
+            
+              <span class="badge badge-dark">Gentoo</span>
+            
+              <span class="badge badge-dark">Windows</span>
+            
+              <span class="badge badge-dark">Mac</span>
+            
+              <span class="badge badge-dark">UEFI</span>
+            
+              <span class="badge badge-dark">ArchLinux</span>
+            
+          </p>
+          <p class="card-text">
+            
+              <h4 id="what-is-refind">What is rEFInd?</h4> <p>Refind is an EFI boot manager, based on the old unmaintained rEFIt.</p> <h4 id="why-refind">Why rEFInd?</h4> <p>Because most bootloaders aren’t good. Bootloader<small><i>  read more...</i></small>
+            
+          </p>
+        </div>
+        <div class="card-footer text-dark">
+          22 December 2018
+        </div>
+      </a>
+    </div>
+
+  
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      <a href="/articles/password-feedback-for-sudo" class="article card border border-">
+        <div class="card-body text-dark">
+          <h3 class="card-title">Password feedback for sudo</h3>
+          <p class="card-text">
+            
+              <span class="badge badge-dark">Linux</span>
+            
+          </p>
+          <p class="card-text">
+            
+              <p>To make sudo show asterisks when you type a password, add this to your Defaults specification:</p>
+
+<p>Defaults pwfeedback</p>
+
+            
+          </p>
+        </div>
+        <div class="card-footer text-dark">
+          14 September 2018
+        </div>
+      </a>
+    </div>
 
   
 
@@ -102,12 +343,10 @@
           <h3 class="card-title">Make syslog-ng at /dev/tty12 colorful</h3>
           <p class="card-text">
             
-              <span class="badge badge-dark">Linux</span>
-            
           </p>
           <p class="card-text">
             
-              To make syslog-ng at your /dev/tty12 (or whatever tty you use for your logs, and it works to whatever kind of log from syslog-ng afaik),<small><i>  read more...</i></small>
+              <p>To make syslog-ng at your /dev/tty12 (or whatever tty you use for your logs, and it works to whatever kind of log from syslog-ng afaik),<small><i>  read more...</i></small>
             
           </p>
         </div>
@@ -119,600 +358,21 @@
 
   
 
-    
-    
-    
-    
-    
-    
-    
+  <!-- Pagination links -->
+	<div class="mx-auto my-3">
 
-    
-    
+		
+			<span class="badge badge-light text-muted"><</span>
+		
 
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/prevent-apple-os-from-creating-dsstore" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Prevent apple OS from creating .DS_Store and other stuff</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">MacOS</span>
-            
-          </p>
-          <p class="card-text">
-            
-              I don't think I have to explain about that. Everyone that had to admin an ecosystem that have one or more apple users know how<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          04 December 2017
-        </div>
-      </a>
-    </div>
+		<small class="mx-2"> Page <b>1</b> of 7 </small>
 
+		
+			<a href="/articles/page-2/" class="badge badge-primary">></a>
+		
+
+  </div>
   
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/fixing-network-device-names" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Fixing the network device names</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Linux</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp; If you are struggled with a distro with systemd for a random reason, you<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          12 October 2017
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/intel-me-security-issue-and-how-to-fix" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Intel ME Security Issue and how to fix it</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Privacy</span>
-            
-              <span class="badge badge-dark">Security</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <span style="font-size: small;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Intel ME is a coprocessor integrated in all<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          06 September 2017
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/how-to-stop-microsoft-messing-up-your" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">How to stop Microsoft messing up your privacy in Windows 7.</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Privacy</span>
-            
-              <span class="badge badge-dark">Windows</span>
-            
-          </p>
-          <p class="card-text">
-            
-              As I stated here for Windows 10, this one is for windows 7.<br> <span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;I<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          02 September 2017
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/r8188eu-link-is-not-ready-error" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">TL-WN725N: "link is not ready, ERROR indicate disassoc" issues and how to fix it</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Linux</span>
-            
-          </p>
-          <p class="card-text">
-            
-              I was trying to configure a notebook with a R8188EU adapter and I see an interesting issue. In some random scenarios, this adapter just doesn't<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          08 February 2017
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/the-retarded-windows-10-auto-download" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">The windows 10 auto-download software</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Privacy</span>
-            
-              <span class="badge badge-dark">Windows</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Now the new "feature" of windows 10 is automatic download to your computer. There's<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          16 June 2016
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/the-hell-of-automatic-keyboards-on" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">The HELL of automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Windows</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <div style="text-align: justify;"> <span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Probably everyone in the same situation are thinking about this crap...</span></div><small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          22 May 2016
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/things-to-disable-on-windows-10" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">How to stop Microsoft messing up your privacy in Windows 10</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Privacy</span>
-            
-              <span class="badge badge-dark">Windows</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-size: small;"><span style="font-family: inherit;">Disregard the fanboys saying “hurr you don’t need to change becuz windows is already perfect”,&nbsp;<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          21 August 2015
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/and-if-aix-boot-partition-fails" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">...and if the AIX boot partition fails?</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              First, you need to boot with an AIX installation disk or Diagnostics disk (Virtual I/O bootdisk also works) and go to maintanence mode. Choose the<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          29 May 2012
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/service-processor-codes" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Service Processor Codes</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              All the Service processor codes. <BR /><BR /> <span style="font-size: x-small;"><span style="font-family: inherit;"><span style="background-color: white;"><br /></span></span></span> <span style="font-size: x-small;"><span style="font-family: inherit;"><span style="background-color: white;"><br /></span></span></span> <!--more--><div<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          17 August 2011
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/aix-instalation-pre-req-53-and-61" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">AIX Instalation pre-req (5.3 and 6.1)</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              Just some pre-req that I do in my AIX installations (I use some necessary Oracle reqs, just in case):<br />Ok.. just a warning, use at<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          27 August 2009
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/partitions-requisites-for-ivm" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Partitions requisites for IVM</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              The LUN reserve_policy must be set to “no_reserve” on the hdisks (on both JS22s) before the logical partition is created. <BR><BR> Open a virtual terminal<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          27 August 2009
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/smit-fast-paths" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Smit Fast Paths</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              You can access SMIT tasks and sub-menus directly by using a fast path. <BR> <span class="Apple-style-span" style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          21 July 2009
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/basic-useful-tsm-commands" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Basic (Useful) TSM Commands</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-              <span class="badge badge-dark">Windows</span>
-            
-              <span class="badge badge-dark">Linux</span>
-            
-          </p>
-          <p class="card-text">
-            
-              <span style="font-family: inherit;">Sometimes I need to analyse *something* in TSM (I'm very noob with TSM) and I never remember any commands</span><br /> <!--more--><span style="font-family: inherit;"><br<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          20 February 2008
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/autenticating-squid-in-active-directory" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">Autenticating SQUID in Active Directory</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">Windows</span>
-            
-              <span class="badge badge-dark">Linux</span>
-            
-              <span class="badge badge-dark">BSD</span>
-            
-          </p>
-          <p class="card-text">
-            
-              Here's is just a simple and fast way to configure a SQUID to authenticate in AD. It should works with any supported OS. <br> <br><small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          03 September 2007
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/aix-diagnostics" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">AIX Diagnostics</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              I have a personal diagnostic list to exactly make a QA (Quality Assurance) or to do a detailed diagnostic. Its useful if you have a<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          22 August 2007
-        </div>
-      </a>
-    </div>
-
-  
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
-      <a href="/articles/reboot-checklist" class="article card border border-">
-        <div class="card-body text-dark">
-          <h3 class="card-title">AIX Reboot checklist</h3>
-          <p class="card-text">
-            
-              <span class="badge badge-dark">AIX</span>
-            
-          </p>
-          <p class="card-text">
-            
-              It's good to check some things after reboot an AIX system, lets see: <span style="font-size: small;"><span style="font-family: inherit;"></span></span> <br> <ol> <li><span style="font-size: normal;"><span style="font-family: inherit;">Verify<small><i>  read more...</i></small>
-            
-          </p>
-        </div>
-        <div class="card-footer text-dark">
-          22 August 2007
-        </div>
-      </a>
-    </div>
-
-  
-
 </div>
   </main>
 
@@ -726,39 +386,96 @@
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -780,16 +497,11 @@
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

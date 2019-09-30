@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>rEFInd EFI Boot Manager</b></h1>
+
+<p class="article-metadata text-muted">
+  22 December 2018 -  
+  <b>
+  
+  
+    6 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#debian">
+      <span class="tag badge badge-pill text-primary border border-primary">Debian</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#linux">
+      <span class="tag badge badge-pill text-primary border border-primary">Linux</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#gentoo">
+      <span class="tag badge badge-pill text-primary border border-primary">Gentoo</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#windows">
+      <span class="tag badge badge-pill text-primary border border-primary">Windows</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#mac">
+      <span class="tag badge badge-pill text-primary border border-primary">Mac</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#uefi">
+      <span class="tag badge badge-pill text-primary border border-primary">UEFI</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#archlinux">
+      <span class="tag badge badge-pill text-primary border border-primary">ArchLinux</span>
+    </a>
+    
+  
+
+</p>
+
+<h4 id="what-is-refind">What is rEFInd?</h4>
+<p>Refind is an EFI boot manager, based on the old unmaintained rEFIt.</p>
+<h4 id="why-refind">Why rEFInd?</h4>
+<p>Because most bootloaders aren’t good. Bootloader should be simple to install, configure and manage. And with themes (because, why not?).</p>
+<h4 id="where-i-can-find-more-info-about-it">Where I can find more info about it?</h4>
+<p><a href="http://www.rodsbooks.com/refind/">Here</a></p>
+<h4 id="how-can-i-install-it">How can I install it?</h4>
+<ol>
+  <li>You should remove your bootmanager (and delete all the crap that it left behind, in case you use a shitty distribution that doesn’t clean the mess).</li>
+  <li>See if your distribution have it, if not, go to the <a href="http://www.rodsbooks.com/refind/">rEFInd site</a>, download and install it.</li>
+  <li>Run refind-install and it’ll do the magic. Check it with efibootmgr if everything is set as expected.</li>
+  <li>See below for extra stuff</li>
+</ol>
+
+<h4 id="refind-in-a-nutshell">rEFInd in a nutshell</h4>
+<p>Refind will put some files in your ESP directory to properly boot, it’s quite simple to figure out, but in special, you have one specific file to take a look: EFI/refind/refind.conf. You can change it by yourself, or replace with this configuration:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Timeout for boot the default</span>
+timeout 20
+<span class="c"># Hide the elements on the screen</span>
+hideui label hints
+<span class="c"># Use graphics UEFI booted</span>
+use_graphics_for linux
+<span class="c"># Default resolution for UEFI. If you put an unsupported resolution, rEFInd will prompt </span>
+<span class="c"># with choices for the supported ones</span>
+resolution 1280 1024
+<span class="c"># Default selections, the + represents the last booted, and the next ones</span>
+<span class="c"># it's for the next in case refind can't detect the last booted OS</span>
+default_selection <span class="s2">"+,Gentoo,Microsoft,ArchLinux,WhateverOtherOS"</span>
+<span class="c"># Show some tools if available</span>
+showtools shell, reboot, shutdown, firmware
+<span class="c"># Include a theme. Not necessary if you don't want to use any theme and left the default as is.</span>
+include themes/yourtheme/theme.conf
+</code></pre></div></div>
+
+<p>The default will look like this:</p>
+
+<p><a href="https://1.bp.blogspot.com/-zJ6DhEhNyH0/XB3BYKMzzHI/AAAAAAAA5jQ/6uBFDA-ouQQ1lVWrVCXZroVHx9Q7HDlUwCLcBGAs/s1600/refind.png"><img src="https://1.bp.blogspot.com/-zJ6DhEhNyH0/XB3BYKMzzHI/AAAAAAAA5jQ/6uBFDA-ouQQ1lVWrVCXZroVHx9Q7HDlUwCLcBGAs/s320/refind.png" alt="" /></a></p>
+
+<h4 id="custom-theme">Custom theme</h4>
+
+<p>I have my own custom theme <a href="https://gitlab.com/menelkir/refind-menelkir">here</a> and it looks like this. Just follow the instructions in this repository and everything will works as expected.
+Or refer <a href="https://www.rodsbooks.com/refind/themes.html">here</a> to more themes. You can also port Clover-EFI themes without too much hassle.</p>
+
+<p><a href="https://4.bp.blogspot.com/-jgUxg58TKpA/XB3B3P1jxJI/AAAAAAAA5jY/cxcvYOJefssw09YbHpbwYiyW_9mu4JAhQCLcBGAs/s1600/sshot.png"><img src="https://4.bp.blogspot.com/-jgUxg58TKpA/XB3B3P1jxJI/AAAAAAAA5jY/cxcvYOJefssw09YbHpbwYiyW_9mu4JAhQCLcBGAs/s320/sshot.png" alt="" /></a></p>
+
+<h4 id="using-the-kernel-and-initrd-inside-esp">Using the kernel and initrd inside ESP:</h4>
+
+<p>That’s my favorite configuration (and you can boot whatever filesystem you want on root and don’t mind extra /boot for that).</p>
+<ol>
+  <li>Create a directory for your OS, something like EFI/MyOS</li>
+  <li>Copy your vmlinuz and initrd to EFI/MyOS</li>
+  <li>Create a file inside EFI/MyOS called refind_linux.conf</li>
+  <li>Use the follow example for your refind_linux.conf (it’s your boot command-line, so your old boot command-line will work here):
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Boot with standard options<span class="s2">"  "</span>vmlinuz.efi <span class="nv">initrd</span><span class="o">=</span><span class="se">\E</span>FI<span class="se">\M</span>yOS<span class="se">\i</span>nitrd.img <span class="nv">root</span><span class="o">=</span>/dev/sdX <span class="nv">rootfstype</span><span class="o">=</span>yourFS verbose<span class="s2">" 
+</span></code></pre></div>    </div>
+  </li>
+  <li>That’s it! You can add more entries for single, etc. Or even create extra directories for extra kernels/OS.</li>
+</ol>
+
+<h4 id="shortcuts-for-refind-screen">Shortcuts for rEFInd screen:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th style="text-align: left">Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>left arrow</td>
+      <td style="text-align: left">Moves the selection one icon to the left (or up the list in text mode)</td>
+    </tr>
+    <tr>
+      <td>right arrow</td>
+      <td style="text-align: left">Moves the selection one icon to the right (or down the list in text mode)</td>
+    </tr>
+    <tr>
+      <td>up arrow</td>
+      <td style="text-align: left">Moves the selection from the utilities row to the OS row (in text mode, moves up one entry)</td>
+    </tr>
+    <tr>
+      <td>down arrow</td>
+      <td style="text-align: left">Moves the selection from the OS row to the utilities row (in text mode, moves down one entry)</td>
+    </tr>
+    <tr>
+      <td>Page Up</td>
+      <td style="text-align: left">Scrolls the visible set of tags to the left (or up in text mode)</td>
+    </tr>
+    <tr>
+      <td>Page Down</td>
+      <td style="text-align: left">Scrolls the visible set of tags to the right (or down in text mode)</td>
+    </tr>
+    <tr>
+      <td>Home</td>
+      <td style="text-align: left">Moves the selection to the first item on the OS row</td>
+    </tr>
+    <tr>
+      <td>End</td>
+      <td style="text-align: left">Moves the selection to the last item on the utilities row</td>
+    </tr>
+    <tr>
+      <td>Esc or Backspace (Delete on Mac keyboards)</td>
+      <td style="text-align: left">Returns from a sub-menu; on the main screen, re-reads the configuration file and re-scans for boot loaders</td>
+    </tr>
+    <tr>
+      <td>Delete (on PCs) or minus (-) (Delete on Mac keyboards is Backspace on PC keyboards, and will not work for this)</td>
+      <td style="text-align: left">Hides a menu tag. The tag is remembered via the computer’s on-board NVRAM.</td>
+    </tr>
+    <tr>
+      <td>Insert, F2, Tab, or +</td>
+      <td style="text-align: left">From the main menu, opens the selection’s submenu, which is most  useful with Mac OS X, ELILO, and Linux kernels with EFI stub loader  support; in a submenu, opens a line editor enabling editing of boot options</td>
+    </tr>
+    <tr>
+      <td>F10</td>
+      <td style="text-align: left">Saves an image of the current screen in the file screenshot_###.bmp, where ### is a sequence number starting with 001, in the EFI System Partition’s (ESP’s) root directory</td>
+    </tr>
+    <tr>
+      <td>F12 or (on some keyboards) Eject</td>
+      <td style="text-align: left">Ejects removable media. This feature only works on some Macs, not on UEFI-based PCs.</td>
+    </tr>
+    <tr>
+      <td>Enter or spacebar</td>
+      <td style="text-align: left">Launches the currently-selected OS, utility, or built-in feature</td>
+    </tr>
+    <tr>
+      <td>1-9</td>
+      <td style="text-align: left">Launches the specified boot loader by number</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td style="text-align: left">Displays the “About rEFInd” information</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td style="text-align: left">Launches the first instance of ELILO in the boot list</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td style="text-align: left">Launches the first instance of GRUB in the boot list</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td style="text-align: left">Launches the first Linux kernel in the boot list</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td style="text-align: left">Launches the first Mac OS boot loader in the boot list</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td style="text-align: left">Launches gptsync</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td style="text-align: left">Launches an EFI shell, if available</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td style="text-align: left">Shuts down the computer (but note that this is buggy and reboots most UEFI-based PCs)</td>
+    </tr>
+    <tr>
+      <td>W</td>
+      <td style="text-align: left">Launches the first Windows boot loader</td>
+    </tr>
+    <tr>
+      <td>Other letters</td>
+      <td style="text-align: left">Launch OSes whose names begin with those letters, as described below Source: <a href="https://www.rodsbooks.com/refind/using.html#table1">rEFInd homepage</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="how-about-windows">How about Windows?</h4>
+<p>rEFInd just needs the Microsoft folder in your ESP, he’ll detect automatically.</p>
+
+<h4 id="how-about-macos">How about macOS?</h4>
+<p>You should leave the EFI files of macOS there, and like Windows, rEFInd should detect the files and add an entry automatically. Keep in mind that rEFInd should have priority on boot.</p>
+
+<h4 id="more-than-one-drive">More than one drive?</h4>
+<p>You can have other drives with their own ESP partitions, refind should stay in primary ESP and it will detect other bootloaders.</p>
+
+<h4 id="refind-install-doesnt-put-an-entry-on-my-efi">refind-install doesn’t put an entry on my EFI</h4>
+<p>Add it manually:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>efibootmgr -c -l //EFI//refind//refind_x64.efi -L "rEFInd Boot Manager"
+</code></pre></div></div>
+<p>Then type just efibootmgr to see the results, you should see something like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BootCurrent: 0000
+Timeout: 0 seconds
+BootOrder: 0000
+Boot0000* rEFInd Boot Manager
+</code></pre></div></div>
+
+<h4 id="extra-efi-drivers">Extra EFI drivers</h4>
+<p>You should put your extra EFI drivers (if applicable) in EFI/refind/drivers_x64/
+Since we’re talking about pure EFI drivers, most drivers should works without problems, like some exotic FS drivers, clover stuff,etc.
+Refer <a href="https://www.rodsbooks.com/refind/drivers.html#finding">here</a> and <a href="https://efi.akeo.ie/">here</a> on how to find extra EFI drivers.</p>
+
+<h4 id="secure-boot">Secure boot</h4>
+<p>I’ll not cover this here because I don’t use it, but the official homepage have a <a href="https://www.rodsbooks.com/refind/secureboot.html">section dedicated to it</a>.</p>
+
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2018-12-22-refind-efi-boot-manager.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

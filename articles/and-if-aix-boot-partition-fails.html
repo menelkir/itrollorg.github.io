@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -87,18 +123,103 @@
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#aix">
+      <span class="tag badge badge-pill text-primary border border-primary">AIX</span>
+    </a>
     
   
 
 </p>
 
-First, you need to boot with an AIX installation disk or Diagnostics disk (Virtual I/O bootdisk also works) and go to maintanence mode. Choose the option to give you a shell (mounting rootvg, of course).<br /><!--more-->Just in case, this is a quite dangerous process, so you need to know what you're doing (and so, if you destroy the world, it's your fault, not mine).<br /><br />Now let's see what happens with boot partition:<br /><br /># lslv -l hd5 <br /><br />If there's something wrong with your hd5 boot device, you should create the hd5 again. This process is dangerous, do you have IBM AIX Support ?? if so, please call them.<br />If not, then, because hd5 is seems not to be on disk but in ODM, you have to delete hd5 definitions from ODM, and then create a new boot device.<br /><br />1) Look in ODM for references to hd5 object name<br /><br /># odmget -q name=hd5 CuAt <br /><br />CuAt:<br />name = "hd5"<br />attribute = "lvserial_id"<br />value = "000439211138e3f6.1"<br />type = "R"<br />generic = "D"<br />rep = "n"<br />nls_index = 648<br /><br />CuAt:<br />name = "hd5"<br />attribute = "inter"<br />value = "x"<br />type = "R"<br />generic = "DU"<br />rep = "l"<br />nls_index = 643<br /><br />CuAt:<br />name = "hd5"<br />attribute = "type"<br />value = "boot"<br />type = "R"<br />generic = "DU"<br />rep = "s"<br />nls_index = 639<br /><br />CuAt:<br />name = "hd5"<br />attribute = "size"<br />value = "2"<br />type = "R"<br />generic = "DU"<br />rep = "r"<br />nls_index = 647<br /><br />2) Now, se the objects you have and use odmget, like this:<br /><br /># odmget -q name=hd5 CuDv <br /># odmget -q value3=hd5 CuDvDr <br /># odmget -q name=hd5 CuDep<br /># odmget -q name=hd5 CuVPD<br /><br />3) Take a backup of /etc/objrepos:<br /><br /># odmget CuAt &gt; /backupdir/CuAt.txt <br /># odmget CuDv &gt; /backupdir/CuDv.txt <br /><br />and so on....<br /><br />4) After identifying which ODM DB has references you have to delete any reference with odmdelete:<br /><br /># odmdelete -q name=hd5 -o CuAt <br /># odmdelete -q name=hd5 -o CuDv <br /># odmdelete -q value3=hd5 -o CuDvDr <br /># odmdelete -q name=hd5 -o CuDep <br /># odmdelete -q name=hd5 -o CuVPD <br /><br />4) If you were lucky enough your system is still running, determine the PP size of the disk you want to be hd5. Now use the following command to recreate the boot partition:<br /><br /># mklv -t boot -y hd5 -a e rootvg 1 hdiskXX <br /><br />5) This means create a hd5 boot logical volume on hdiskXX belonging to rootvg size 1 PP. Once you have created hd5 boot partition, you need to reinstate the kernel:<br /><br /># bosboot -ad /dev/ipldevice <br /># bootlist -m normal hdiskXX <br /># syncvg <br /><br />6) Reboot the server, sacrifice a goat and pray.
+<p>First, you need to boot with an AIX installation disk or Diagnostics disk (Virtual I/O bootdisk also works) and go to maintanence mode.
+Choose the option to give you a shell (mounting rootvg, of course).
+Just in case, this is a quite dangerous process, so you need to know what you’re doing (and so, if you destroy the world, it’s your fault, not mine).</p>
+
+<p>Now let’s see what happens with boot partition:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lslv -l hd5
+</code></pre></div></div>
+
+<p>If there’s something wrong with your hd5 boot device, you should create the hd5 again. This process is dangerous, do you have IBM AIX Support ?? if so, please call them.
+If not, then, because hd5 is seems not to be on disk but in ODM, you have to delete hd5 definitions from ODM, and then create a new boot device.</p>
+
+<h4 id="1-look-in-odm-for-references-to-hd5-object-name">1. Look in ODM for references to hd5 object name</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>odmget -q name=hd5 CuAt 
+
+CuAt:
+name = "hd5"
+attribute = "lvserial_id"
+value = "000439211138e3f6.1"
+type = "R"
+generic = "D"
+rep = "n"
+nls_index = 648
+
+CuAt:
+name = "hd5"
+attribute = "inter"
+value = "x"
+type = "R"
+generic = "DU"
+rep = "l"
+nls_index = 643
+
+CuAt:
+name = "hd5"
+attribute = "type"
+value = "boot"
+type = "R"
+generic = "DU"
+rep = "s"
+nls_index = 639
+
+CuAt:
+name = "hd5"
+attribute = "size"
+value = "2"
+type = "R"
+generic = "DU"
+rep = "r"
+nls_index = 647
+</code></pre></div></div>
+
+<h4 id="2-now-se-the-objects-you-have-and-use-odmget-like-this">2. Now, se the objects you have and use odmget, like this:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>odmget -q name=hd5 CuDv 
+odmget -q value3=hd5 CuDvDr 
+odmget -q name=hd5 CuDep
+odmget -q name=hd5 CuVPD
+</code></pre></div></div>
+
+<h4 id="3-take-a-backup-of-etcobjrepos">3. Take a backup of /etc/objrepos:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>odmget CuAt &gt; /backupdir/CuAt.txt 
+odmget CuDv &gt; /backupdir/CuDv.txt 
+</code></pre></div></div>
+<p>and so on….</p>
+
+<h4 id="4-after-identifying-which-odm-db-has-references-you-have-to-delete-any-reference-with-odmdelete">4. After identifying which ODM DB has references you have to delete any reference with odmdelete:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>odmdelete -q name=hd5 -o CuAt 
+odmdelete -q name=hd5 -o CuDv 
+odmdelete -q value3=hd5 -o CuDvDr 
+odmdelete -q name=hd5 -o CuDep 
+odmdelete -q name=hd5 -o CuVPD 
+</code></pre></div></div>
+<h4 id="4-if-you-were-lucky-enough-your-system-is-still-running-determine-the-pp-size-of-the-disk-you-want-to-be-hd5-now-use-the-following-command-to-recreate-the-boot-partition">4. If you were lucky enough your system is still running, determine the PP size of the disk you want to be hd5. Now use the following command to recreate the boot partition:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mklv -t boot -y hd5 -a e rootvg 1 hdiskXX 
+</code></pre></div></div>
+<h4 id="5-this-means-create-a-hd5-boot-logical-volume-on-hdiskxx-belonging-to-rootvg-size-1-pp-once-you-have-created-hd5-boot-partition-you-need-to-reinstate-the-kernel">5. This means create a hd5 boot logical volume on hdiskXX belonging to rootvg size 1 PP. Once you have created hd5 boot partition, you need to reinstate the kernel:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bosboot -ad /dev/ipldevice 
+bootlist -m normal hdiskXX 
+syncvg 
+</code></pre></div></div>
+
+<h4 id="6-reboot-the-server-sacrifice-a-goat-and-pray">6. Reboot the server, sacrifice a goat and pray.</h4>
 
 
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2012-05-29-and-if-aix-boot-partition-fails.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -112,39 +233,96 @@ First, you need to boot with an AIX installation disk or Diagnostics disk (Virtu
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -166,16 +344,11 @@ First, you need to boot with an AIX installation disk or Diagnostics disk (Virtu
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

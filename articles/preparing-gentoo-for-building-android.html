@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Preparing gentoo for building android</b></h1>
+
+<p class="article-metadata text-muted">
+  03 January 2013 -  
+  <b>
+  
+  
+    less than 1 min read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#gentoo">
+      <span class="tag badge badge-pill text-primary border border-primary">Gentoo</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#android">
+      <span class="tag badge badge-pill text-primary border border-primary">Android</span>
+    </a>
+    
+  
+
+</p>
+
+<p>That’s right, I see lots of documentation for ubuntu and many other distributions and none exactly for gentoo, and seems I like to work with some crossdev, I’ll post instructions for preparing your gentoo for that:</p>
+
+<p>First of all, you need some packages (ok, if you already have some of these, you can skip them):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emerge <span class="nt">-pv</span> git gnupg flex bison gperf libsdl wxGTK squashfs-tools curl ncurses zlib schedtool perl-Switch zip unzip
+</code></pre></div></div>
+<p>For 64bits systems, you need a little more</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emerge <span class="nt">-pv</span> emul-linux-x86-baselibs emul-linux-x86-compat emul-linux-x86-cpplibs
+</code></pre></div></div>
+<p>Note: I don’ t know if cpplibs are really necessary, but I’ll let here.</p>
+
+<p>Make sure you’ re using python 2.x instead of 3.x when you’re about to compile</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> eselect python list
+
+Available Python interpreters:
+  <span class="o">[</span>1]   python2.7
+  <span class="o">[</span>2]   python3.2 <span class="k">*</span>
+
+<span class="o">&gt;</span> eselect python <span class="nb">set </span>1
+</code></pre></div></div>
+<p>Download the repo utility. I’ll install in /usr/local/bin, but you can use in ~/bin if you prefer:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo <span class="o">&gt;</span> /usr/local/bin/repo
+chmod 777 /usr/local/bin/repo
+</code></pre></div></div>
+<p>Now you’re able to start syncing the source:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir ~/Devel/Android <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/Devel/Android
+repo init <span class="nt">-u</span> <span class="o">[</span>https://android.googlesource.com/platform/manifest]<span class="o">(</span>https://android.googlesource.com/platform/manifest<span class="o">)</span>
+repo sync
+</code></pre></div></div>
+<p>From here you’ll know what to do. :)</p>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2013-01-03-preparing-gentoo-for-building-android.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

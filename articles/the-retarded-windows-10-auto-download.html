@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -73,61 +109,62 @@
 
 </nav>
   <div class="col-lg-10 mx-auto mt-5 article">
-  <h1><b>The windows 10 auto-download software</b></h1>
+  <h1><b>Disable windows 10 auto-download software (Updated: 2017-09-06)</b></h1>
 
 <p class="article-metadata text-muted">
   16 June 2016 -  
   <b>
   
   
-    3 mins read time
+    less than 1 min read time
   
   </b>
 
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">Privacy</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#privacy">
+      <span class="tag badge badge-pill text-primary border border-primary">Privacy</span>
+    </a>
     
-      <span class="badge badge-pill text-primary border border-primary">Windows</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#windows">
+      <span class="tag badge badge-pill text-primary border border-primary">Windows</span>
+    </a>
     
   
 
 </p>
 
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Now the new "feature" of windows 10 is automatic download to your computer. There's a load of CRAP that microsoft decided to push into your windows without your consent. And guess what? If you uninstall, they'll install again and again!</span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">All the extra uninstalable crap in windows 10 isn't enough, microsoft? WTF?</span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
-<span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><strike>Well then, just stop with this nonsense, open regedit and go to this key:</strike>&nbsp;(Do this one and continue reading):</span></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
-<i><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent</span></i></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><i><br /></i>
-Create a new 32-bit DWORD value named <i style="font-weight: bold;">DisableWindowsConsumerFeatures</i>&nbsp;and set its value data to 1</span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
-<span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Or use this with an administrative prompt:</span></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
-<i><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /d 1 /t REG_DWORD /f</span></i></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span>
-<span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><span style="font-size: 14px; line-height: 24px;">Source: <a href="http://winaero.com/blog/fix-windows-10-installs-apps-like-candy-crush-soda-saga-automatically/" target="_blank">WinAreo</a></span></span></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
-<b>Update:&nbsp;</b><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">Microsoft just updated the way the send you spam apps. Wonderful! Now the last register alone can't stop the spam. Here the other ones you need to change:</span></span></span><br />
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
-<i style="font-size: small;">reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “ContentDeliveryAllowed” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “OemPreInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEverEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SilentInstalledAppsEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><span style="color: #444444; font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif; font-size: x-small;"><i>reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SubscribedContentEnabled” /t REG_DWORD /d “0” /f</i></span></span><br />
-<span style="background-color: white;"><i style="font-size: small;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg delete “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps” /f</span></i></span><br />
-<div>
-<span style="background-color: white;"><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;"><br /></span>
-<span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">If doing this still doesn't work, try&nbsp;</span><a href="http://winaero.com/blog/stop-windows-10-anniversary-update-from-installing-candy-crush-and-other-unwanted-apps/" style="font-family: &quot;open sans&quot;, helvetica, arial, sans-serif;" target="_blank">this</a><span style="color: #444444; font-family: &quot;open sans&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif;">. Some new updates will call just "Microsoft Content" is the same "Spotlight" in the link.</span></span></span></div>
+<p>Now the new “feature” of windows 10 is automatic download to your computer. Microsoft decided to push a lot of software into your windows without your consent. And guess what? If you uninstall, they’ll install again and again!
+Well then, just stop with this nonsense, open regedit and go to this key: (Do this one and continue reading):</p>
+
+<pre><code class="language-registry">HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent
+</code></pre>
+<p>Create a new 32-bit DWORD value named DisableWindowsConsumerFeatures and set its value data to 1</p>
+
+<p>Or use this with an administrative prompt:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reg add <span class="s2">"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent"</span> /v DisableWindowsConsumerFeatures /d 1 /t REG_DWORD /f
+</code></pre></div></div>
+<p>Source: <a href="http://winaero.com/blog/fix-windows-10-installs-apps-like-candy-crush-soda-saga-automatically/">WinAreo</a></p>
+
+<p>Update: Microsoft just updated the way the send you spam apps. Wonderful! Now the last register alone can’t stop the spam. Here the other ones you need to change:</p>
+<pre><code class="language-batch">reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “ContentDeliveryAllowed” /t REG_DWORD /d “0” /f
+reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “OemPreInstalledAppsEnabled” /t REG_DWORD /d “0” /f
+reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEnabled” /t REG_DWORD /d “0” /f
+reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “PreInstalledAppsEverEnabled” /t REG_DWORD /d “0” /f
+reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SilentInstalledAppsEnabled” /t REG_DWORD /d “0” /f
+reg add “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager” /v “SubscribedContentEnabled” /t REG_DWORD /d “0” /f
+reg delete “HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps” /f
+</code></pre>
+<p>If doing this still doesn’t work, try <a href="http://winaero.com/blog/stop-windows-10-anniversary-update-from-installing-candy-crush-and-other-unwanted-apps/">this</a>. Some new updates will call just “Microsoft Content” is the same “Spotlight” in the link.</p>
 
 
-
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2016-06-16-the-retarded-windows-10-auto-download.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -141,39 +178,96 @@ Create a new 32-bit DWORD value named <i style="font-weight: bold;">DisableWindo
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -195,16 +289,11 @@ Create a new 32-bit DWORD value named <i style="font-weight: bold;">DisableWindo
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

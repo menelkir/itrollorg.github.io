@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -73,32 +109,79 @@
 
 </nav>
   <div class="col-lg-10 mx-auto mt-5 article">
-  <h1><b>Prevent apple OS from creating .DS_Store and other stuff</b></h1>
+  <h1><b>Prevent apple OS from creating .DS_Store and other bullshits</b></h1>
 
 <p class="article-metadata text-muted">
   04 December 2017 -  
   <b>
   
   
-    4 mins read time
+    less than 1 min read time
   
   </b>
 
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">MacOS</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#recomendations">
+      <span class="tag badge badge-pill text-primary border border-primary">Recomendations</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#mac">
+      <span class="tag badge badge-pill text-primary border border-primary">Mac</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#general-computing">
+      <span class="tag badge badge-pill text-primary border border-primary">General Computing</span>
+    </a>
     
   
 
 </p>
 
-I don't think I have to explain about that. Everyone that had to admin an ecosystem that have one or more apple users know how this can be a nightmare in many different scenarios (specially because at some point, MacOS doesn't care even to hide the files anymore when dealing with network shares, external drives and so on, how nice).<br /><br />Well... this needs to be applied with the MacOS:<br /><br /><b style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;">Prevent MDS from attempting to Index</b><br /><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">sudo touch /Volumes/volume_name/.metadata_never_index</span></i><br /><br style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;" /><b style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;">Disable Indexing AND Searching of Volumes (if necessary)</b><br /><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">sudo mdutil -i off -d /Volumes/volume_name</span></i><br /><br style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;" /><b style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;">Delete existing Spotlight Index (if necessary, to start over, whatever fits you)</b><br /><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">sudo rm -rfv /Volumes/volume_name/.Spotlight-V100<br />sudo rm -rfv /.Spotlight-V100</span></i><br /><br style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;" /><b style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;">Disable creating '.DS_Store' on USB volumes</b><br /><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true</span></i><br /><br style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;" /><b style="-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; color: #2c2c2c; font-family: Verdana, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px;"><b>Disable creating '.DS_Store' on</b><span class="Apple-converted-space">&nbsp;</span>network volumes</b><br /><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-style: normal; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"><i>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true</i></span><br /><br /><b><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-style: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">Now that you've cleaned the mess, remove this from your drives:</span></b><br /><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;">find /path/you/want/to/clean/ -name ".DS_Store" -depth -exec rm {} \;</span></i><br /><br /><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"><b>You can also delete the file responsible for custom icons:</b></span><br /><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"><i>find /path/you/want/to/clean/ -name $'Icon\r' -depth -exec rm {} \;</i><b>&nbsp;</b></span><i><span style="background-color: #fcfcfc; color: #2c2c2c; display: inline; float: none; font-family: &quot;verdana&quot; , &quot;arial&quot; , sans-serif; font-size: 13px; font-weight: normal; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"> </span></i>
+<p>I don’t think I have to explain about that. Everyone that had to admin an ecosystem that have one or more apple users know how this can be a nightmare in many different scenarios (specially because at some point, MacOS doesn’t care even to hide the files anymore when dealing with network shares, external drives and so on, how nice).</p>
+
+<p>Well… this needs to be applied with the MacOS:</p>
+
+<ol>
+  <li>Prevent MDS from attempting to Index
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo touch /Volumes/volume_name/.metadata_never_index
+</code></pre></div>    </div>
+  </li>
+  <li>Disable Indexing AND Searching of Volumes (if necessary)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mdutil -i off -d /Volumes/volume_name
+</code></pre></div>    </div>
+  </li>
+  <li>Delete existing Spotlight Index (if necessary, to start over, whatever fits you)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rfv /Volumes/volume_name/.Spotlight-V100
+sudo rm -rfv /.Spotlight-V100
+</code></pre></div>    </div>
+  </li>
+  <li>Disable creating ‘.DS_Store’ bullshit on USB volumes
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+</code></pre></div>    </div>
+  </li>
+  <li>Disable creating ‘.DS_Store’ bullshit on network volumes
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+</code></pre></div>    </div>
+  </li>
+  <li>Now that you’ve cleaned the mess, remove this bullshit from your drives:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /path/you/want/to/clean/ -name ".DS_Store" -depth -exec rm {} \;
+</code></pre></div>    </div>
+  </li>
+  <li>You can also delete the file responsible for custom icons:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /path/you/want/to/clean/ -name $'Icon\r' -depth -exec rm {} \;
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2017-12-04-prevent-apple-os-from-creating-dsstore.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -112,39 +195,96 @@ I don't think I have to explain about that. Everyone that had to admin an ecosys
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -166,16 +306,11 @@ I don't think I have to explain about that. Everyone that had to admin an ecosys
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

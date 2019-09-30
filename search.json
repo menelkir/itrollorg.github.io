@@ -1,17 +1,81 @@
 [
   
     {
-      "title"    : "Make syslog-ng at /dev/tty12 colorful",
+      "title"    : "Recovery a freebsd after whatever problem",
+      "category" : "",
+      "tags"     : "FreeBSD",
+      "url"      : "/articles/recovery-freebsd-after-whatever-problem",
+      "date"     : "2019-09-11 15:36:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Organizing your massive collection of wallpapers",
+      "category" : "",
+      "tags"     : "Linux, General Computing",
+      "url"      : "/articles/organizing-your-massive-collection",
+      "date"     : "2019-09-05 20:30:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Can&#39;t unlock KDE Session",
+      "category" : "",
+      "tags"     : "Linux, Gentoo",
+      "url"      : "/articles/cant-unlock-kde-session",
+      "date"     : "2019-08-21 19:47:00 -0300"
+    } ,
+  
+    {
+      "title"    : "rEFInd EFI Boot Manager",
+      "category" : "",
+      "tags"     : "Debian, Linux, Gentoo, Windows, Mac, UEFI, ArchLinux",
+      "url"      : "/articles/refind-efi-boot-manager",
+      "date"     : "2018-12-22 03:09:00 -0200"
+    } ,
+  
+    {
+      "title"    : "Password feedback for sudo",
       "category" : "",
       "tags"     : "Linux",
+      "url"      : "/articles/password-feedback-for-sudo",
+      "date"     : "2018-09-14 10:29:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Make syslog-ng at /dev/tty12 colorful",
+      "category" : "",
+      "tags"     : "",
       "url"      : "/articles/make-syslog-ng-at-devtty12-colorful",
       "date"     : "2018-09-11 12:01:00 -0300"
     } ,
   
     {
-      "title"    : "Prevent apple OS from creating .DS_Store and other stuff",
+      "title"    : "Weather via command line",
       "category" : "",
-      "tags"     : "MacOS",
+      "tags"     : "Linux",
+      "url"      : "/articles/weather-via-command-line",
+      "date"     : "2018-07-03 19:15:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Using Logical Volumes as disk images for virtualization",
+      "category" : "",
+      "tags"     : "Linux, Recomendations, Howto, General Computing",
+      "url"      : "/articles/using-logical-volumes-as-disk-images",
+      "date"     : "2018-01-25 21:31:00 -0200"
+    } ,
+  
+    {
+      "title"    : "Privacy repository",
+      "category" : "",
+      "tags"     : "Linux, Recomendations, Privacy, Windows, General Computing",
+      "url"      : "/articles/privacy-repository",
+      "date"     : "2018-01-05 19:42:00 -0200"
+    } ,
+  
+    {
+      "title"    : "Prevent apple OS from creating .DS_Store and other bullshits",
+      "category" : "",
+      "tags"     : "Recomendations, Mac, General Computing",
       "url"      : "/articles/prevent-apple-os-from-creating-dsstore",
       "date"     : "2017-12-04 20:57:00 -0200"
     } ,
@@ -19,7 +83,7 @@
     {
       "title"    : "Fixing the network device names",
       "category" : "",
-      "tags"     : "Linux",
+      "tags"     : "Debian, Linux, Recomendations, Exherbo, ArchLinux",
       "url"      : "/articles/fixing-network-device-names",
       "date"     : "2017-10-12 02:46:00 -0300"
     } ,
@@ -27,7 +91,7 @@
     {
       "title"    : "Intel ME Security Issue and how to fix it",
       "category" : "",
-      "tags"     : "Privacy, Security",
+      "tags"     : "General Computing",
       "url"      : "/articles/intel-me-security-issue-and-how-to-fix",
       "date"     : "2017-09-06 13:50:00 -0300"
     } ,
@@ -35,21 +99,29 @@
     {
       "title"    : "How to stop Microsoft messing up your privacy in Windows 7.",
       "category" : "",
-      "tags"     : "Privacy, Windows",
+      "tags"     : "Recomendations, Privacy, Windows, General Computing",
       "url"      : "/articles/how-to-stop-microsoft-messing-up-your",
       "date"     : "2017-09-02 19:04:00 -0300"
     } ,
   
     {
-      "title"    : "TL-WN725N: &quot;link is not ready, ERROR indicate disassoc&quot; issues and how to fix it",
+      "title"    : "Pidgin icon issue",
       "category" : "",
       "tags"     : "Linux",
+      "url"      : "/articles/pidgin-icon-issue",
+      "date"     : "2017-06-06 09:51:00 -0300"
+    } ,
+  
+    {
+      "title"    : "TL-WN725N: &quot;link is not ready, ERROR indicate disassoc&quot; issues and how to fix it",
+      "category" : "",
+      "tags"     : "Linux, Gentoo, ArchLinux",
       "url"      : "/articles/r8188eu-link-is-not-ready-error",
       "date"     : "2017-02-08 14:51:00 -0200"
     } ,
   
     {
-      "title"    : "The windows 10 auto-download software",
+      "title"    : "Disable windows 10 auto-download software (Updated: 2017-09-06)",
       "category" : "",
       "tags"     : "Privacy, Windows",
       "url"      : "/articles/the-retarded-windows-10-auto-download",
@@ -57,7 +129,7 @@
     } ,
   
     {
-      "title"    : "The HELL of automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)",
+      "title"    : "Disable automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)",
       "category" : "",
       "tags"     : "Windows",
       "url"      : "/articles/the-hell-of-automatic-keyboards-on",
@@ -65,11 +137,59 @@
     } ,
   
     {
-      "title"    : "How to stop Microsoft messing up your privacy in Windows 10",
+      "title"    : "Tuning LG G-Pad 8.0 V490 to suck less",
+      "category" : "",
+      "tags"     : "V490, Android",
+      "url"      : "/articles/tuning-lg-g-pad-80-v490-to-suck-less",
+      "date"     : "2015-09-22 06:35:00 -0300"
+    } ,
+  
+    {
+      "title"    : "How to stop Microsoft messing up your privacy in Windows 10 (updated 16/Jun/2016)",
       "category" : "",
       "tags"     : "Privacy, Windows",
       "url"      : "/articles/things-to-disable-on-windows-10",
       "date"     : "2015-08-21 11:30:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Tuning Yoga Tablet B8000-F to suck less",
+      "category" : "",
+      "tags"     : "Lenovo Yoga, Android",
+      "url"      : "/articles/tuning-yoga-tablet-b8000-f-to-suck-less",
+      "date"     : "2015-02-22 10:52:00 -0300"
+    } ,
+  
+    {
+      "title"    : "WCH341 USB Serial Converter for OSX",
+      "category" : "",
+      "tags"     : "Mac",
+      "url"      : "/articles/wch341-usb-serial-converter-for-osx",
+      "date"     : "2013-08-21 14:52:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Preparing gentoo for building android",
+      "category" : "",
+      "tags"     : "Gentoo, Android",
+      "url"      : "/articles/preparing-gentoo-for-building-android",
+      "date"     : "2013-01-03 14:40:00 -0200"
+    } ,
+  
+    {
+      "title"    : "Android tunings",
+      "category" : "",
+      "tags"     : "Android",
+      "url"      : "/articles/android-tunings",
+      "date"     : "2012-05-29 18:47:00 -0300"
+    } ,
+  
+    {
+      "title"    : "AIX Clone",
+      "category" : "",
+      "tags"     : "AIX",
+      "url"      : "/articles/aix-clone",
+      "date"     : "2012-05-29 12:46:00 -0300"
     } ,
   
     {
@@ -89,9 +209,65 @@
     } ,
   
     {
+      "title"    : "ADB Shell using PuTTy",
+      "category" : "",
+      "tags"     : "Windows, Android",
+      "url"      : "/articles/adb-shell-using-putty",
+      "date"     : "2011-06-21 16:27:00 -0300"
+    } ,
+  
+    {
+      "title"    : "EXT4 Optimization for daily use",
+      "category" : "",
+      "tags"     : "Exherbo, Gentoo",
+      "url"      : "/articles/ext4-optimization-for-daily-use",
+      "date"     : "2011-06-07 21:39:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Intel ICH7 HDA Audio Controller (VIA4397)",
+      "category" : "",
+      "tags"     : "Linux, Ubuntu, Exherbo, Gentoo, Howto, General Computing",
+      "url"      : "/articles/intel-ich7-hda-audio-controller",
+      "date"     : "2011-05-31 14:10:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Motorola Milestone Boot Chain",
+      "category" : "",
+      "tags"     : "Android",
+      "url"      : "/articles/motorola-milestone-boot-chain",
+      "date"     : "2011-03-06 20:45:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Auto connect/identify with irssi",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/articles/auto-connectidentify-with-irssi",
+      "date"     : "2010-09-10 12:09:00 -0300"
+    } ,
+  
+    {
+      "title"    : "New Portage Repository",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/articles/new-portage-repository",
+      "date"     : "2010-05-31 10:02:00 -0300"
+    } ,
+  
+    {
+      "title"    : "Bacula Server",
+      "category" : "",
+      "tags"     : "Ubuntu, Gentoo, Howto",
+      "url"      : "/articles/bacula-server",
+      "date"     : "2010-05-04 18:39:00 -0300"
+    } ,
+  
+    {
       "title"    : "AIX Instalation pre-req (5.3 and 6.1)",
       "category" : "",
-      "tags"     : "AIX",
+      "tags"     : "IBM, AIX",
       "url"      : "/articles/aix-instalation-pre-req-53-and-61",
       "date"     : "2009-08-27 12:10:00 -0300"
     } ,
@@ -105,25 +281,25 @@
     } ,
   
     {
-      "title"    : "Smit Fast Paths",
-      "category" : "",
-      "tags"     : "AIX",
-      "url"      : "/articles/smit-fast-paths",
-      "date"     : "2009-07-21 10:20:00 -0300"
-    } ,
-  
-    {
       "title"    : "Basic (Useful) TSM Commands",
       "category" : "",
-      "tags"     : "AIX, Windows, Linux",
+      "tags"     : "IBM, General Computing",
       "url"      : "/articles/basic-useful-tsm-commands",
       "date"     : "2008-02-20 13:17:00 -0300"
     } ,
   
     {
+      "title"    : "Sort CPU usage",
+      "category" : "",
+      "tags"     : "Ubuntu, Gentoo, FreeBSD, AIX",
+      "url"      : "/articles/sort-cpu-usage",
+      "date"     : "2007-10-12 22:43:00 -0300"
+    } ,
+  
+    {
       "title"    : "Autenticating SQUID in Active Directory",
       "category" : "",
-      "tags"     : "Windows, Linux, BSD",
+      "tags"     : "Linux, Windows, FreeBSD, Howto, General Computing",
       "url"      : "/articles/autenticating-squid-in-active-directory",
       "date"     : "2007-09-03 11:50:00 -0300"
     } ,
@@ -137,7 +313,7 @@
     } ,
   
     {
-      "title"    : "AIX Reboot checklist",
+      "title"    : "Reboot checklist",
       "category" : "",
       "tags"     : "AIX",
       "url"      : "/articles/reboot-checklist",

@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -87,23 +123,112 @@
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#ibm">
+      <span class="tag badge badge-pill text-primary border border-primary">IBM</span>
+    </a>
     
-      <span class="badge badge-pill text-primary border border-primary">Windows</span>
-    
-      <span class="badge badge-pill text-primary border border-primary">Linux</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#general-computing">
+      <span class="tag badge badge-pill text-primary border border-primary">General Computing</span>
+    </a>
     
   
 
 </p>
 
-<span style="font-family: inherit;">Sometimes I need to analyse *something* in TSM (I'm very noob with TSM) and I never remember any commands</span><br />
-<!--more--><span style="font-family: inherit;"><br /><b>Basic (Useful) TSM commands</b><br /><br />Analysing Logs<br />TSM&gt; q actlog<br /><br />Analysing DB <br />TSM&gt; q db<br /><br />Analysing Storage Pool <br />TSM&gt; q stgpool<br /><br />Analysing volumes inside the library <br />TSM&gt;q libvol<br /><br />Analysing all volumes in Tape Storage Pool <br />TSM&gt; q vol devclass=ltoclass<br /><br />Analysing backups in db (executed)<br />TSM&gt; q volhist type=dbb<br /><br />Write a label on a volume<br />TSM&gt; run label “volume name”<br /><br />Remove a volume from LTO <br />TSM&gt; run DISMOUNT “volume name”<br /><br />Verify existing scripts <br />TSM&gt; q script<br /><br />Verifying commands executed from one script <br />TSM&gt; q script f=d<br /><br />Verifying sessions <br />TSM&gt; q sess<br /><br />Canceling a session <br />TSM&gt;cancel sess “session number”<br /><br />Show data from scheduled client on the current day <br />TSM&gt; q event * *<br /><br />Show data from scheduled client on the next day <br />TSM&gt; q event * * begind=+1<br /><br />Show data from administrative schedule on the current day <br />TSM&gt; q event * t=a<br /><br />Show data from administrative schedule on the next day <br />TSM&gt; q event * t=a begind=+1<br /><br />Show process <br />TSM&gt; q proc<br /><br />Show Tape requisition <br />TSM&gt; q req<br /><br />Show a tape into the drive <br />TSM&gt; q mount</span>
+<p>Sometimes I need to analyse something in TSM (I’m very noob with TSM) and I never remember any commands</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Analysing Logs</td>
+      <td>q actlog</td>
+    </tr>
+    <tr>
+      <td>Analysing DB</td>
+      <td>q db</td>
+    </tr>
+    <tr>
+      <td>Analysing Storage Pool</td>
+      <td>q stgpool</td>
+    </tr>
+    <tr>
+      <td>Analysing volumes inside the library</td>
+      <td>q libvol</td>
+    </tr>
+    <tr>
+      <td>Analysing all volumes in Tape Storage Pool</td>
+      <td>q vol devclass=ltoclass</td>
+    </tr>
+    <tr>
+      <td>Analysing backups in db (executed)</td>
+      <td>q volhist type=dbb</td>
+    </tr>
+    <tr>
+      <td>Write a label on a volume</td>
+      <td>run label “volume name”</td>
+    </tr>
+    <tr>
+      <td>Remove a volume from LTO</td>
+      <td>run DISMOUNT “volume name”</td>
+    </tr>
+    <tr>
+      <td>Verify existing scripts</td>
+      <td>q script</td>
+    </tr>
+    <tr>
+      <td>Verifying commands executed from one script</td>
+      <td>q script f=d</td>
+    </tr>
+    <tr>
+      <td>Verifying sessions</td>
+      <td>q sess</td>
+    </tr>
+    <tr>
+      <td>Canceling a session</td>
+      <td>cancel sess “session number”</td>
+    </tr>
+    <tr>
+      <td>Show data from scheduled client on the current day</td>
+      <td>q event * *</td>
+    </tr>
+    <tr>
+      <td>Show data from scheduled client on the next day</td>
+      <td>q event * * begind=+1</td>
+    </tr>
+    <tr>
+      <td>Show data from administrative schedule on the current day</td>
+      <td>q event * t=a</td>
+    </tr>
+    <tr>
+      <td>Show data from administrative schedule on the next day</td>
+      <td>q event * t=a begind=+1</td>
+    </tr>
+    <tr>
+      <td>Show process</td>
+      <td>q proc</td>
+    </tr>
+    <tr>
+      <td>Show Tape requisition</td>
+      <td>q req</td>
+    </tr>
+    <tr>
+      <td>Show a tape into the drive</td>
+      <td>q mount</td>
+    </tr>
+  </tbody>
+</table>
 
 
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2008-02-20-basic-useful-tsm-commands.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -117,39 +242,96 @@
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -171,16 +353,11 @@
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

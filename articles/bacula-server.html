@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Bacula Server</b></h1>
+
+<p class="article-metadata text-muted">
+  04 May 2010 -  
+  <b>
+  
+  
+    13 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#ubuntu">
+      <span class="tag badge badge-pill text-primary border border-primary">Ubuntu</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#gentoo">
+      <span class="tag badge badge-pill text-primary border border-primary">Gentoo</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#howto">
+      <span class="tag badge badge-pill text-primary border border-primary">Howto</span>
+    </a>
+    
+  
+
+</p>
+
+<p>We all know that Bacula server are a good backup server but a hell to configure properly, and sometimes doesn’t work at all. I got experience with some weird distros that even you puting my same configuration doesn’t work. So.. if you fail trying to configuring, just take a look in other distros, maybe isn’t your fault. ;)
+As well, my example as used and tested in my home-server using Gentoo and my work testing server Ubuntu.</p>
+
+<h4 id="1-installing-packages">1. Installing packages</h4>
+<p>Bacula provides some backends to configuration, like mysql, postgreSQL and sqlite3.</p>
+
+<h5 id="ubuntu">Ubuntu:</h5>
+<p>You’ll have a lot of packages, so take a look what you really need (since after install you’ll have some wizards to configure databases, the basic installation is very simple. So take note that bacula in ubuntu is an old release, if you really want to use 2.x server, i’ts to you.</p>
+
+<h5 id="gentoo">Gentoo:</h5>
+<p>You’ll need to unmask bacula to get the last version (If you use gentoo, you already now what you’re doing, I’ll not explain here that you unmask things at your own risk and so on). Just in case, this is my USEFLAGS:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ebuildR   ] app-backup/bacula-5.0.1-r2  USE="ipv6 mysql python readline ssl tcpd -X -bacula-clientonly -bacula-nodir -bacula-nosd -logwatch -postgres -qt4 -sqlite3 -static" 0 kB
+</code></pre></div></div>
+
+<h4 id="2-configuration-files">2. Configuration files</h4>
+
+<p>If you have some problems, I recommend using webmin backend for Bacula, because it’s very simple to detect some errors and more intuitive to configure.</p>
+
+<p>I’m using mysql for backend db (mysql db are done during the installation) and no Tape (this is a file-backup based example), but will be easy to configure a tape looking on commented examples.
+The file storage and work directory on this example are all located in /mnt/sda4/Backup.</p>
+
+<p>/etc/bacula/bacula-dir.conf (This is your Bacula Server configuration file, also called the Director Server)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+Director {
+    Name = example-dir                  
+    DIRport = 9101                  
+    QueryFile = "/usr/libexec/bacula/query.sql"                 
+    WorkingDirectory = /mnt/sda4/Backup/work/                  
+    PidDirectory = "/var/run"                 
+    Maximum Concurrent Jobs = 10                  
+    Password = "mypasswordhash"         # Console password                 
+    Messages = Standard                  
+}               
+
+JobDefs {                 
+    Name = "DefaultJob"                 
+    Type = Backup                  
+    Level = Incremental                  
+    Client = example-fd  
+    FileSet = "Local Server Set"                 
+    Schedule = "WeeklyCycle"                 
+    Storage = File                  
+    Messages = Standard                  
+    Pool = File                  
+    Priority = 10                  
+    Write Bootstrap = "/var/lib/bacula/%c.bsr"                 
+}               
+
+# Define the main nightly save backup job                 
+#   By default, this job will back up to disk in /tmp                  
+Job {                 
+    Name = "Local Server Job"                 
+    Type = Backup                  
+    Level = Incremental                  
+    Client = example-fd                  
+    FileSet = "Local Server Set"                 
+    Schedule = WeeklyCycle                  
+    Storage = File                  
+    Pool = File                  
+    Messages = Standard                  
+}               
+
+Job {                 
+    Name = "BackupClient2"                  
+    Client = example2-fd                  
+    JobDefs = "DefaultJob"                  
+}               
+
+# Backup the catalog database (after the nightly save)                 
+Job {                 
+    Name = "BackupCatalog"                 
+    JobDefs = "DefaultJob"                 
+    Level = Full                  
+    FileSet="Catalog"                 
+    Schedule = "WeeklyCycleAfterBackup"                 
+# This creates an ASCII copy of the catalog                 
+# Arguments to make_catalog_backup.pl are:                 
+#  make_catalog_backup.pl &lt;catalog-name&gt;                  
+    RunBeforeJob = /usr/libexec/bacula/make_catalog_backup.pl MyCatalog
+# This deletes the copy of the catalog                 
+    RunAfterJob  = "/usr/libexec/bacula/delete_catalog_backup"            
+    Write Bootstrap = "/var/lib/bacula/%n.bsr"                 
+    Priority = 11                   # run after main backup                 
+}               
+
+# Standard Restore template, to be changed by Console program                 
+#  Only one such job is needed for all Jobs/Clients/Storage ...                  
+#                 
+Job {                 
+    Name = "RestoreFiles example"                 
+    Type = Restore                  
+    Client = example-fd                  
+    FileSet = "Local Server Set"                 
+    Storage = File                  
+    Pool = Default                  
+    Messages = Standard                  
+    Where = /tmp/bacula-restores                  
+}               
+
+# List of files to be backed up                 
+FileSet {                 
+    Name = "Local Server Set"                 
+    Include {                  
+	Options {                  
+	    signature = MD5                  
+	}                  
+#  Put your list of files here, preceded by 'File =', one per line                  
+#    or include an external list with:                  
+#                 
+#    File = &lt;file-name                  
+#                 
+#  Note: / backs up everything on the root partition.                  
+#    if you have other partitions such as /usr or /home                  
+#    you will probably want to add them too.                  
+#                 
+#  By default this is defined to point to the Bacula binary                  
+#    directory to give a reasonable FileSet to backup to                  
+#    disk storage during initial testing.                  
+#                 
+    File = /etc/                  
+    }                  
+
+# If you backup the root directory, the following two excluded                 
+#   files can be useful                  
+#                 
+    Exclude {                  
+	File = /var/lib/bacula                  
+	File = /tmp                  
+	File = /proc                  
+	File = /tmp                  
+	File = /.journal                  
+	File = /.fsck                  
+	}                  
+}               
+
+# When to do the backups, full backup on first sunday of the month,                 
+#  differential (i.e. incremental since full) every other sunday,                  
+#  and incremental backups other days                  
+
+Schedule {                 
+    Name = WeeklyCycle                  
+    Run = Level=Incremental Pool=File 1st sun at 23:05                  
+}               
+
+# This schedule does the catalog. It starts after the WeeklyCycle                 
+Schedule {                 
+    Name = WeeklyCycleAfterBackup                  
+    Run = Level=Full Pool=File sun-sat at 23:10                  
+}               
+
+# This is the backup of the catalog                 
+FileSet {                 
+    Name = "Catalog"                 
+    Include {                  
+	Options {                  
+	    signature = MD5                  
+	}                  
+    File = "/var/lib/bacula/bacula.sql"                 
+    }                  
+}               
+
+# Client (File Services) to backup                 
+Client {                 
+    Name = example-fd                  
+    Address = 127.0.0.1                  
+    FDPort = 9102                  
+    Catalog = MyCatalog                  
+    Password = mypasswordhash                  
+    File Retention = 30 days                  
+    Job Retention = 6 months                  
+    AutoPrune = yes                  
+}               
+
+# Second Client (File Services) to backup                 
+#  You should change Name, Address, and Password before using                  
+Client {                 
+    Name = example2-fd                  
+    Address = example2                  
+    FDPort = 9102                  
+    Catalog = MyCatalog                  
+    Password = "mypasswordhash"         # password for FileDaemon 2                  
+    File Retention = 30 days            # 30 days                  
+    Job Retention = 6 months            # six months                  
+    AutoPrune = yes                     # Prune expired Jobs/Files                  
+}               
+
+# Definition of file storage device                 
+Storage {                 
+    Name = File                  
+# Do not use "localhost" here                 
+    Address = example                # N.B. Use a fully qualified name here                 
+    SDPort = 9103                  
+    Password = "mypasswordhash"                 
+    Device = FileStorage                  
+    Media Type = File                  
+}               
+
+# Definition of DDS tape storage device                 
+Storage {                 
+    Name = DDS-4                  
+#  Do not use "localhost" here                  
+    Address = example                # N.B. Use a fully qualified name here                  
+    SDPort = 9103                  
+    Password = "mypasswordhash"          # password for Storage daemon                  
+    Device = DDS-4                      # must be same as Device in Storage daemon                  
+    Media Type = DDS-4                  # must be same as MediaType in Storage daemon                  
+    Autochanger = yes                   # enable for autochanger device                  
+}               
+
+# Definition of 8mm tape storage device                 
+#Storage {                 
+#  Name = "8mmDrive"                  
+#  Do not use "localhost" here                  
+#  Address = example                # N.B. Use a fully qualified name here                  
+#  SDPort = 9103                  
+#  Password = "mypasswordhash"                  
+#  Device = "Exabyte 8mm"                  
+#  MediaType = "8mm"                  
+#}               
+
+# Definition of DVD storage device                 
+#Storage {                 
+#  Name = "DVD"                  
+#  Do not use "localhost" here                  
+#  Address = example                # N.B. Use a fully qualified name here                  
+#  SDPort = 9103                  
+#  Password = "mypasswordhash"                  
+#  Device = "DVD Writer"                  
+#  MediaType = "DVD"                  
+#}               
+
+
+# Generic catalog service                 
+Catalog {                 
+   Name = MyCatalog                  
+# Uncomment the following line if you want the dbi driver                 
+# dbdriver = "dbi:mysql"; dbaddress = 127.0.0.1; dbport =                 
+   dbname = "baculadb"; dbuser = "baculauser"; dbpassword = "somepassword"                 
+}               
+
+# Reasonable message delivery -- send most everything to email address                 
+#  and to the console                  
+Messages {                 
+   Name = Standard                  
+#                 
+# NOTE! If you send to two email or more email addresses, you will need                 
+#  to replace the %r in the from field (-f part) with a single valid                  
+#  email address in both the mailcommand and the operatorcommand.                  
+#  What this does is, it sets the email address that emails would display                  
+#  in the FROM field, which is by default the same email as they're being                  
+#  sent to.  However, if you send email to more than one address, then                  
+#  you'll have to set the FROM address manually, to a single address.  
+#  for example, a 'no-reply@mydomain.com', is better since that tends to                  
+#  tell (most) people that its coming from an automated source.                
+                  
+#                 
+   mailcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \&lt;%r\&gt;\" -s \"Bacula: %t %e of %c %l\" %r"                 
+   operatorcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \&lt;%r\&gt;\" -s \"Bacula: Intervention needed for %j\" %r"                 
+   mail = root@localhost = all, !skipped                  
+   operator = root@localhost = mount                  
+   console = all, !skipped, !saved                  
+#                 
+# WARNING! the following will create a file that you must cycle from                 
+#          time to time as it will grow indefinitely. However, it will                  
+#          also keep all your messages if they scroll off the console.                  
+#                 
+   append = "/var/lib/bacula/log" = all, !skipped                 
+   catalog = all                  
+}               
+                  
+                  
+#                 
+# Message delivery for daemon messages (no job).                 
+Messages {                 
+   Name = Daemon                  
+   mailcommand = "/usr/sbin/bsmtp -h localhost -f \"\(Bacula\) \&lt;%r\&gt;\" -s \"Bacula daemon message\" %r"                 
+   mail = root@localhost = all, !skipped                  
+   console = all, !skipped, !saved                  
+   append = "/var/lib/bacula/log" = all, !skipped                 
+}               
+                  
+# Default pool definition                 
+Pool {                 
+   Name = Default                  
+   Pool Type = Backup                  
+   Recycle = yes                       # Bacula can automatically recycle Volumes                 
+   AutoPrune = yes                     # Prune expired volumes                 
+   Volume Retention = 365 days         # one year                 
+}               
+                  
+# File Pool definition                 
+Pool {                 
+   Name = File                  
+   Pool Type = Backup                  
+   Recycle = yes                  
+   AutoPrune = yes                  
+   Volume Retention = 365 days                  
+   Maximum Volume Bytes = 2G                  
+   Maximum Volumes = 100               # Limit number of Volumes in Pool                 
+   LabelFormat = Tape                  
+}               
+                  
+                  
+# Scratch pool definition                 
+Pool {                 
+   Name = Scratch                  
+   Pool Type = Backup                  
+}               
+                  
+#                 
+# Restricted console used by tray-monitor to get the status of the director                 
+#                 
+Console {                 
+   Name = example-mon                  
+   Password = "mypasswordhash"                 
+   CommandACL = status, .status                  
+}               
+                  
+Client {                 
+   Name = other-client                  
+   Address = 192.168.100.101                  
+   FDPort = 9102                  
+   Catalog = MyCatalog                  
+   Password = mypasswordhash                  
+   File Retention = 30 days                  
+   Job Retention = 6 months                  
+   AutoPrune = yes                  
+}               
+                  
+FileSet {                 
+   Name = "Other-client Set"                 
+   Include {                  
+     File = C:/test/                  
+     Options {                  
+     }                  
+   }                  
+}                 
+Job {                 
+   Name = "Other-Client Backup"                 
+   Type = Backup                  
+   Level = Incremental                  
+   Client = other-client-fd                  
+   FileSet = "Other-client Set"                 
+   Schedule = WeeklyCycle                  
+   Storage = File                  
+   Pool = File                  
+   Messages = Standard                  
+
+}                 
+</code></pre></div></div>
+<p>/etc/bacula/bacula-fd.conf *(This is your Client configuration file, also called the <strong>File Daemon</strong>).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+# List Directors who are permitted to contact this File daemon
+#
+Director {
+   Name = example-dir
+   Password = "mypasswordhash"
+}
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
+#
+Director {
+  Name = example-mon
+  Password = "mypasswordhash"
+  Monitor = yes
+}
+#
+# "Global" File daemon configuration specifications
+#
+FileDaemon {                          # this is me
+  Name = example-fd
+  FDport = 9102
+  WorkingDirectory = /mnt/sda4/Backup/work/
+  Pid Directory = /var/run
+  Maximum Concurrent Jobs = 20
+}
+
+# Send all messages except skipped files back to Director
+Messages {
+  Name = Standard
+  director = example-dir = all, !skipped, !restored
+}
+</code></pre></div></div>
+<p>/etc/bacula/bacula-sd.conf *(The Storage daemon configuration file, responsible for server storage procedures).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+# List Directors who are permitted to contact this File daemon
+#
+
+Director {
+  Name = example-dir
+  Password = "mypasswordhash"
+}
+
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
+#
+
+Director {
+  Name = example-mon
+  Password = "mypasswordhash"
+  Monitor = yes
+}
+
+#
+# "Global" File daemon configuration specifications
+#
+
+FileDaemon {                          # this is me
+  Name = example-fd
+  FDport = 9102
+  WorkingDirectory = /mnt/sda4/Backup/work/
+  Pid Directory = /var/run
+  Maximum Concurrent Jobs = 20
+}
+
+# Send all messages except skipped files back to Director
+
+Messages {
+  Name = Standard
+  director = example-dir = all, !skipped, !restored
+}
+</code></pre></div></div>
+<p><em>/etc/bacula/bconsole.conf</em> (The last one, responsible for frontend connections, user agents, console connections, etc).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+# List Directors who are permitted to contact this File daemon
+#
+
+Director {
+  Name = example-dir
+  Password = "mypasswordhash"
+}
+
+#
+# Restricted Director, used by tray-monitor to get the
+#   status of the file daemon
+#
+
+Director {
+  Name = example-mon
+  Password = "mypasswordhash"
+  Monitor = yes
+}
+
+#
+# "Global" File daemon configuration specifications
+#
+
+FileDaemon {                          # this is me
+  Name = example-fd
+  FDport = 9102
+  WorkingDirectory = /mnt/sda4/Backup/work/
+  Pid Directory = /var/run
+  Maximum Concurrent Jobs = 20
+}
+
+# Send all messages except skipped files back to Director
+
+Messages {
+  Name = Standard
+  director = example-dir = all, !skipped, !restored
+}
+</code></pre></div></div>
+
+<p>Now you’re able to make some backups using bconsole, let’s test:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bconsole
+
+Connecting to Director example:9101
+1000 OK: example-dir Version: 5.0.1 (24 February 2010)
+Enter a period to cancel a command.
+*help
+
+  Command       Description
+  =======       ===========
+  add           Add media to a pool
+  autodisplay   Autodisplay console messages
+  automount     Automount after label
+  cancel        Cancel a job
+  create        Create DB Pool from resource
+  delete        Delete volume, pool or job
+  disable       Disable a job
+  enable        Enable a job
+  estimate      Performs FileSet estimate, listing gives full listing
+  exit          Terminate Bconsole session
+  gui           Non-interactive gui mode
+  help          Print help on specific command
+  label         Label a tape
+  list          List objects from catalog
+  llist         Full or long list like list command
+  messages      Display pending messages
+  memory        Print current memory usage
+  mount         Mount storage
+  prune         Prune expired records from catalog
+  purge         Purge records from catalog
+  python        Python control commands
+  quit          Terminate Bconsole session
+  query         Query catalog
+  restore       Restore files
+  relabel       Relabel a tape
+  release       Release storage
+  reload        Reload conf file
+  run           Run a job
+  status        Report status
+  setdebug      Sets debug level
+  setip         Sets new client address -- if authorized
+  show          Show resource records
+  sqlquery      Use SQL to query catalog
+  time          Print current time
+  trace         Turn on/off trace to file
+  unmount       Unmount storage
+  umount        Umount - for old-time Unix guys, see unmount
+  update        Update volume, pool or stats
+  use           Use catalog xxx
+  var           Does variable expansion
+  version       Print Director version
+  wait          Wait until no jobs are running 
+
+</code></pre></div></div>
+<p>When at a prompt, entering a period cancels the command.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*run
+
+Automatically selected Catalog: MyCatalog
+Using Catalog "MyCatalog"
+A job name must be specified.
+
+The defined Job resources are:
+     1: Local Server Job
+     2: BackupCatalog
+     3: RestoreFiles example
+     4: Other-Client Backup
+Select Job resource (1-4): 1
+
+Run Backup job
+JobName:  Local Server Job
+Level:    Incremental
+Client:   example-fd
+FileSet:  Local Server Set
+Pool:     File (From Job resource)
+Storage:  File (From Job resource)
+When:     2010-05-04 19:22:39
+Priority: 10
+OK to run? (yes/mod/no): yes
+
+Job queued. JobId=19
+
+*status
+
+Status available for:
+     1: Director
+     2: Storage
+     3: Client
+     4: All
+Select daemon type for status (1-4): 3
+
+The defined Client resources are:
+     1: example-fd
+     2: other-client-fd
+Select Client (File daemon) resource (1-2): 1
+
+Connecting to Client example-fd at 127.0.0.1:9102
+example-fd Version: 5.0.1 (24 February 2010)  i686-pc-linux-gnu gentoo
+Daemon started 28-Apr-10 15:29, 12 Jobs run since started.
+Heap: heap=606,208 smbytes=81,435 max_bytes=162,215 bufs=68 max_bufs=115
+Sizeof: boffset_t=8 size_t=4 debug=0 trace=0
+
+Running Jobs:
+Director connected at: 04-May-10 19:22
+No Jobs running.
+
+====
+
+Terminated Jobs:
+JobId  Level    Files      Bytes   Status   Finished        Name
+======================================================================
+     1  Incr          0         0   OK       04-May-10 19:22 Local_Server_Job
+====
+
+*
+</code></pre></div></div>
+
+<p>If everything is ok, you’ll not see any errors in status command, and also you’ll be able to verify what have done.
+Now is everything ok, I **HIGHLY **recommend you to use bacula frontend in webmin to configure clients.</p>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2010-05-04-bacula-server.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

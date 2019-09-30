@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -73,7 +109,7 @@
 
 </nav>
   <div class="col-lg-10 mx-auto mt-5 article">
-  <h1><b>AIX Reboot checklist</b></h1>
+  <h1><b>Reboot checklist</b></h1>
 
 <p class="article-metadata text-muted">
   22 August 2007 -  
@@ -87,36 +123,54 @@
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#aix">
+      <span class="tag badge badge-pill text-primary border border-primary">AIX</span>
+    </a>
     
   
 
 </p>
 
-It's good to check some things after reboot an AIX system, lets see:
+<p>It’s good to check some things after reboot an AIX system:</p>
 
-<span style="font-size: small;"><span style="font-family: inherit;"></span></span>
-<br>
-<ol>
-<li><span style="font-size: normal;"><span style="font-family: inherit;">Verify what disks are on rootvg</span></span></li>
-<li><span style="font-size: normal;"><span style="font-family: inherit;">Rewrite the bootdisks of rootvg</span></span></li>
-<li><span style="font-size: normal;"><span style="font-family: inherit;">Verify the boot order</span></span></li>
-<li><span style="font-size: normal;"><span style="font-family: inherit;">Setting up the verified boot order</span></span></li>
-</ol>
-<span style="font-size: normal;"><span style="font-family: inherit;"><br /><b>1) Verify what disks are on rootvg:</b><br /><br /><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"># lspv | grep rootvg<br />hdisk0 00012998b87370f6 rootvg active<br />hdisk1 00012998180a047e rootvg active</span><br /><b><br />2) Rewrite the bootdisks of rootvg:</b><br /><br /><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"># bosboot -ad hdisk0<br />bosboot: Boot image is 20726 512 byte blocks.<br /># bosboot -ad hdisk1<br />bosboot: Boot image is 20726 512 byte blocks.</span><br /><br /><b>3) Verify the boot order:</b><br /><br /><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"># bootlist -m normal -o<br />hdisk0 blv=hd5</span><br /><br /><b>4) Setting up the verified boot order:</b><br /><br />Look where the dump partition are located:<br /><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><br /># ls -l lg_dumplv<br />lg_dumplv: N/A<br />PV COPIES IN BAND DISTRIBUTION<br />hdisk1 016:000:000 0% 016:000:000:000:000</span><br /><br />In this case, is better the hdisk1 be the first disk on boot order (btw, the two disks will boot at the same time, but only one will be the first identificated):<br /><br /><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"># bootlist -m normal hdisk1 hdisk0<br /># bootlist -m normal -o<br />hdisk1 blv=hd5<br />hdisk0 blv=hd5</span></span></span><br />
-<br />
-<span style="font-size: normal;"><span style="font-family: inherit;"><span style="font-size: x-normal;"><span style="font-family: inherit;"><span class="Apple-style-span" style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-style-span" style="font-size: xx-normal;">
-</span></span></span></span></span></span>
-<span style="font-size: normal;"><span style="font-family: inherit;"><span style="font-size: x-normal;"><span style="font-family: inherit;"><span class="Apple-style-span" style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-style-span" style="font-size: xx-normal;">Source: </span></span><a href="http://kairo.wordpress.com/2007/07/19/checklist-pre-reboot-aix/" target="_blank"><span class="Apple-style-span" style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span class="Apple-style-span" style="font-size: xx-normal;">Kairo Araujo</span></span></a></span></span></span></span><br />
-<blockquote>
-</blockquote>
+<h4 id="1-verify-what-disks-are-on-rootvg">1. Verify what disks are on rootvg:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># lspv | grep rootvg
+hdisk0 00012998b87370f6 rootvg active
+hdisk1 00012998180a047e rootvg active
+</code></pre></div></div>
+<h4 id="2-rewrite-the-bootdisks-of-rootvg">2. Rewrite the bootdisks of rootvg:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># bosboot -ad hdisk0
+bosboot: Boot image is 20726 512 byte blocks.
+# bosboot -ad hdisk1
+bosboot: Boot image is 20726 512 byte blocks.
+</code></pre></div></div>
+<h4 id="3-verify-the-boot-order">3. Verify the boot order:</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># bootlist -m normal -o
+hdisk0 blv=hd5
+</code></pre></div></div>
+<h4 id="4-setting-up-the-verified-boot-order">4. Setting up the verified boot order:</h4>
+
+<p>Look where the dump partition are located:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls -l lg_dumplv
+lg_dumplv: N/A
+PV COPIES IN BAND DISTRIBUTION
+hdisk1 016:000:000 0% 016:000:000:000:000
+</code></pre></div></div>
+<p>In this case, is better the hdisk1 be the first disk on boot order (btw, the two disks will boot at the same time, but only one will be the first identificated):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># bootlist -m normal hdisk1 hdisk0
+# bootlist -m normal -o
+hdisk1 blv=hd5
+hdisk0 blv=hd5
+</code></pre></div></div>
+<p>Source: <a href="http://kairo.wordpress.com/2007/07/19/checklist-pre-reboot-aix/">Kairo Araujo</a></p>
 
 
-
-
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2007-08-22-reboot-checklist.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -130,39 +184,96 @@ It's good to check some things after reboot an AIX system, lets see:
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -184,16 +295,11 @@ It's good to check some things after reboot an AIX system, lets see:
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

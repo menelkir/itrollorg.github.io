@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Tuning Yoga Tablet B8000-F to suck less</b></h1>
+
+<p class="article-metadata text-muted">
+  22 February 2015 -  
+  <b>
+  
+  
+    3 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#lenovo-yoga">
+      <span class="tag badge badge-pill text-primary border border-primary">Lenovo Yoga</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#android">
+      <span class="tag badge badge-pill text-primary border border-primary">Android</span>
+    </a>
+    
+  
+
+</p>
+
+<p>So I put my hands on a Lenovo Yoga Tablet. It’s not a bad device, but cmon Lenovo, you can do better than that. 
+There’s several flaws on the device, specially in the software level. 
+I’m unable to believe that Lenovo are able to customize even in theme level but unable to make the device better in several ways.</p>
+
+<p>To make the things harder, the only site full of custom stuff for this device is a <a href="http://lenovo-forums.ru/">russian forum</a>.
+The device itself is rock-solid, good design and the software isn’t too much bloated, is simple to make workarounds, so let’s get started.
+Last observation: You have adb and drivers installed properly, right?</p>
+
+<h4 id="1-rooting-the-device">1. Rooting the device</h4>
+
+<p>Yeah if want to make the things better here, you MUST HAVE root.
+Get this application (only for windows) here. It’s quite simple to <a href="http://www.kingoapp.com/">use</a>, so don’t worry.</p>
+
+<h4 id="2-recovery">2. Recovery</h4>
+
+<p>This device have 3 modes: Normal, Metamode (bootloader itself) and fastboot. 
+To enter, turn off your device, press both volume controls and power. 
+You’ll be presented to a prompt to select (with volume up) and enter (with volume down). 
+Go to fastboot mode and flash <a href="https://www.mediafire.com/?hcvqg3jwkhdkn44">this recovery file</a>.</p>
+
+<p>Enter in fastboot mode and flash your recovery:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastboot flash recovery recovery_TWRP_2.6.3.0_B8000_Wi-Fi_minitwrpi.img
+</code></pre></div></div>
+<h4 id="3-optional-removing-kingsoft-root">3. (Optional) Removing kingsoft root</h4>
+
+<p>Now that you have a recovery, you can simple remove kingsoft and install SuperSU from <a href="http://download.chainfire.eu/396/SuperSU/">here</a>.</p>
+
+<h4 id="4-tuning-buildprop">4. Tuning Build.prop</h4>
+
+<p>I made some tunings of build.prop, after my tunings battery is quite longer than before and the performance was better. Since it’s a tablet and it have a good battery, will not hurt to tuning the stuff. I will post the entire build.prop</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Build Related
+ro.build.id=KOT49H
+ro.build.display.id=B8000_A442_001_020_140620_WW_WIFI
+ro.build.version.incremental=B8000_A442_001_020_140620_WW_WIFI
+ro.custom.build.version=B8000_A442_001_020_140620_WW_WIFI
+ro.product.ota.model=LenovoB8000-F-ROW
+ro.product.ota.backuprestore=true
+ro.build.version.sdk=19
+ro.build.version.codename=REL
+ro.build.version.release=4.4.2
+ro.build.date=Sun Feb 22 11:38:41 CST 2015
+ro.build.date.utc=1403235521
+ro.build.type=user
+ro.build.user=menelkir
+ro.build.host=pandora
+ro.build.tags=release-keys
+ro.product.model=Lenovo B8000-F
+ro.product.brand=Lenovo
+ro.product.name=LenovoB8000-F
+ro.product.device=B8000
+ro.product.board=blade10_row_wifi
+ro.product.cpu.abi=armeabi-v7a
+ro.product.cpu.abi2=armeabi
+ro.product.sw.hiddenversion=
+ro.product.hw.version=LepadBlade_X10
+ro.product.manufacturer=LENOVO
+ro.wifi.channels=
+ro.board.platform=
+ro.build.product=blade10_row_wifi
+ro.build.description=blade10_row_wifi-user 4.4.2 KOT49H 39 release-keys
+ro.build.fingerprint=Lenovo/LenovoB8000-F/B8000:4.4.2/KOT49H/B8000_A442_001_020_140620_WW_W:user/release-keys
+ro.build.flavor=
+ro.build.characteristics=tablet
+ro.lenovo.series=YOGA TABLET
+ro.com.Google.clientidbase=android-lenovo
+ro.lenovo.device=tablet
+ro.lenovo.operator=open
+ro.lenovo.platform=mtk
+ro.lenovo.region=row
+ro.lenovo.sim=none
+ro.lenovo.tablet=wifi
+ro.lenovo.cta=false
+ro.lenovo.videocall=false
+ro.lenovo.bqb=pass
+ro.lenovo.wificert=no
+
+# Mediatek Build Properties
+ro.mediatek.version.release=ALPS.KK1.MP5.V1
+ro.mediatek.platform=MT6589
+ro.mediatek.chip_ver=S01
+ro.mediatek.version.branch=MAIN2.1
+ro.mediatek.version.sdk=1
+
+# RILD properties
+rild.libpath=/system/lib/mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+
+# MTK Stuff
+# MTK, Infinity, 20090720 {
+wifi.interface=wlan0
+# MTK, Infinity, 20090720 }
+# MTK, mtk03034, 20101210 {
+ro.mediatek.wlan.wsc=1
+# MTK, mtk03034 20101210}
+# MTK, mtk03034, 20110318 {
+ro.mediatek.wlan.p2p=1
+# MTK, mtk03034 20110318}
+# MTK, mtk03034, 20101213 {
+mediatek.wlan.ctia=0
+# MTK, mtk03034 20101213}
+# LCD Density
+ro.sf.lcd_density=120
+# Tethering Interface
+wifi.tethering.interface=ap0
+# OpenGL Version
+ro.opengles.version=131072
+# Wifi Direct 
+wifi.direct.interface=p2p0
+# USB MTP WHQL
+ro.sys.usb.mtp.whql.enable=0
+# Power off opt in IPO
+sys.ipo.pwrdncap=2
+# Mass Storage
+ro.sys.usb.storage.type=mtp,mass_storage
+# USB BICR function
+ro.sys.usb.bicr=yes
+# USB Charge only function
+ro.sys.usb.charging.only=yes
+# Audio
+ro.camera.sound.forced=0
+ro.audio.silent=0
+# IPO
+sys.ipo.tbl=1
+sys.ipo.bklondelay=150
+ro.zygote.preload.enable=0
+# Lenovo Sidebar
+persist.sys.smartside.vpackage=com.lenovo.videoplayer
+persist.sys.smartside.vclass=com.lenovo.videoplayer.VideoPlayerActivity
+persist.sys.smartside.vppackage=com.lenovo.videoplayer
+persist.sys.smartside.vpclass=com.lenovo.videoplayer.playmovie.MovieView
+persist.sys.smartsidebar.state=off
+persist.sys.smartsidebar.wid=1280
+persist.sys.smartsidebar.hei=800
+persist.sys.smartside.bpackage=com.android.gallery3d
+persist.sys.smartside.bclass=com.android.gallery3d.app.Gallery
+# Aditional Build Properties
+persist.gemini.sim_num=1
+ro.gemini.smart_sim_switch=false
+ro.gemini.smart_3g_switch=0
+ril.specific.sm_cause=0
+bgw.current3gband=0
+gps.solution.combo.chip=1
+ril.external.md=0
+fmradio.driver.chip=3
+ro.btstack=blueangel
+ro.sf.hwrotation=0
+ril.current.share_modem=1
+launcherplus.allappsgrid=2d
+curlockscreen=1
+ro.mediatek.gemini_support=false
+sys.lenovo.ideaui.version.sdk=1
+drm.service.enabled=true
+fmradio.driver.enable=0
+ril.first.md=1
+ril.flightmode.poweroffMD=0
+ril.telephony.mode=1
+persist.mtk.anr.mechanism=1
+mediatek.wlan.chip=MT6628
+mediatek.wlan.module.postfix=_mt6628
+ril.radiooff.poweroffMD=0
+ro.config.notification_sound=Heaven_nearby.ogg
+ro.config.alarm_alert=Dreamland.ogg
+ro.config.ringtone=Salt_water.ogg
+persist.mtk.wcn.combo.chipid=-1
+ro.fota.oem=MTK_KK
+ro.fota.platform=MTK_KK
+ro.fota.type=phone
+ter.service.enable=0
+mediatek.extmd.usbport=0
+ro.lte.dc.support=0
+ril.active.md=0
+persist.backgrounddata.enable=false
+ro.setupwizard.mode=OPTIONAL
+ro.com.google.gmsversion=4.4_r3
+ro.com.google.clientidbase=android-lenovo
+ro.com.google.clientidbase.ms=android-lenovo
+ro.com.google.clientidbase.yt=android-lenovo
+ro.com.google.clientidbase.am=android-lenovo
+ro.com.google.clientidbase.gmm=android-lenovo
+ro.operator.blade.sw.version=S100
+ro.operator.blade.hw.version=H-3-01
+persist.sys.dalvik.vm.lib=libdvm.so
+net.bt.name=Android
+persist.sys.shutdown.mode=hibernate
+debug.kill_allocating_task=0
+persist.sys.ui.hw=1
+ro.debuggable=1
+ro.config.disable.hw_accel=false
+debug.enabletr=true
+
+# Audio and Video Recording Quality
+ro.media.enc.jpeg.quality=100
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.hprof.vid.bps=8000000
+ro.media.capture.maxres=8m
+ro.media.panorama.defres=3264x1840
+ro.media.panorama.frameres=1280x720
+ro.camcorder.videoModes=true
+ro.media.enc.hprof.vid.fps=65
+
+# Streaming video tunings
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-rtsp=true
+media.stagefright.enable-record=false
+
+# Video Acceleration and GW debugging
+debug.sf.hw=1
+debug.performance.tuning=1
+video.accelerate.hw=1
+debug.egl.profiler=1 # Measure rendering time in adb shell dumpsys gfxinfo
+debug.egl.hw=1
+debug.composition.type=gpu # Disable hardware overlays and use GPU for screen compositing
+
+# Disable built in error reporting
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+
+# Better net speeds
+net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
+
+# Saves power
+ro.ril.power_collapse=1
+pm.sleep_mode=1
+wifi.supplicant_scan_interval=180
+ro.mot.eri.losalert.delay=1000
+
+# Better Scrolling
+windowsmgr.max_events_per_sec=150
+ro.min_pointer_dur=8
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+
+# Better Signal
+persist.cust.tel.eons=1
+
+# Better call quality
+ro.ril.enable.amr.wideband=1
+
+# Better signal
+ro.config.hw_fast_dormancy=1
+
+# Faster boot
+ro.config.hw_quickpoweron=true
+
+# Dalvik Virtual Machine
+dalvik.vm.checkjni=false
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=48m
+dalvik.vm.heapsize=64m
+dalvik.vm.verify-bytecode=false
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.lockprof.threshold=250
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+dalvik.vm.jmiopts=forcecopy
+
+# Disable sending of usage data
+ro.config.nocheckin=1
+
+# Better Image Quality (can cause low performance)
+persist.sys.use_dithering=1
+
+# Disable strict mode checking
+persist.android.strictmode=0
+
+# Enable display dithering
+persist.sys.use_dithering=1
+
+# More volumes steps in call
+ro.config.vc_call_steps=20
+
+# Google DNS (or use your own)
+net.rmnet0.dns1=8.8.8.8
+net.rmnet0.dns2=8.8.4.4
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+
+# Purgable assets
+persist.sys.purgeable_assets=1
+</code></pre></div></div>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2015-02-22-tuning-yoga-tablet-b8000-f-to-suck-less.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

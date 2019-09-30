@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -73,90 +109,65 @@
 
 </nav>
   <div class="col-lg-10 mx-auto mt-5 article">
-  <h1><b>The HELL of automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)</b></h1>
+  <h1><b>Disable automatic keyboards on Windows (8, 8.1, 10, and probably the next versions)</b></h1>
 
 <p class="article-metadata text-muted">
   22 May 2016 -  
   <b>
   
   
-    3 mins read time
+    less than 1 min read time
   
   </b>
 
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">Windows</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#windows">
+      <span class="tag badge badge-pill text-primary border border-primary">Windows</span>
+    </a>
     
   
 
 </p>
 
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Probably everyone in the same situation are thinking about this crap...</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Actually, I have a Toshiba Qosmio with a windows machine and after the "free" upgrade to windows 10, I see that even my notebook with a US-English Windows, US-English Keyboard, and yes US configurations for everything, give me automatic keyboards because I'm in Brazil (WTF?). Not sufficient, that's a ridiculous arbitrary retarded feature, because he gives not one, but, FOUR LAYOUTS!! WTF? (US, US-English, ABNT, ABNT2). And guess what? He changes from one to another automagically, just to mess up your work, your brains, your life and everything else, because yeah, you're using windows.</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;After mining google, someone had the solution <a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/" target="_blank">here</a>.</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp; &nbsp;Simply change this thing on registry (because windows doesn't want to give you an option to change THIS SIMPLE THING):</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<b><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Disable the obnoxious "Auto Detect Keyboard Layout":</span></b></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout]</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">"IgnoreRemoteKeyboardLayout"=dword:00000001</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Administrative command version:</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout" /v&nbsp;IgnoreRemoteKeyboardLayout&nbsp;/d&nbsp;1 /t REG_DWORD /f</span></i></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<b><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">If the language crapbar still shows, use this DWORD:</span></b></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">[HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar]</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">"ShowStatus"=dword:00000003</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Administrative command version:</span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">reg add "HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar" /v&nbsp;ShowStatus&nbsp;/d 3 /t REG_DWORD /f</span></i></div>
-<div>
-<div style="text-align: justify;">
-<i><span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></i></div>
-</div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></div>
-<div style="text-align: justify;">
-<span style="font-family: &quot;helvetica neue&quot; , &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Source:&nbsp;<a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/">http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/</a></span></div>
-<div style="text-align: justify;">
-<br /></div>
+<p>Probably everyone in the same situation are thinking about this…</p>
+
+<p>Actually, I have a Toshiba Qosmio with a windows machine and after the “free” upgrade to windows 10,</p>
+
+<p>I see that even my notebook with a US-English Windows, US-English Keyboard, and yes US configurations for everything, give me automatic keyboards because I’m in Brazil.</p>
+
+<p>Not sufficient, that’s a ridiculous arbitrary feature, because he gives not one, but, FOUR LAYOUTS!! (US, US-English, ABNT, ABNT2). And guess what? He changes from one to another automagically, just to mess up your work, your brains, your life and everything else, because yeah, you’re using windows!</p>
+
+<p>After mining google, someone had the solution <a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/">here</a>.</p>
+
+<p>Simply change this thing on registry (because windows doesn’t want to give you an option to change THIS SIMPLE THING):</p>
+
+<p>Disable the obnoxious “Auto Detect Keyboard Layout”:</p>
+<pre><code class="language-windowsregistry">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout]
+
+"IgnoreRemoteKeyboardLayout"=dword:00000001
+</code></pre>
+<p>Administrative command version:</p>
+<pre><code class="language-windowsbatch">reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard\Layout" /v IgnoreRemoteKeyboardLayout /d 1 /t REG_DWORD /f
+</code></pre>
+<p>If the language crapbar still shows, use this DWORD:</p>
+<pre><code class="language-windowsregistry">[HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar]
+
+"ShowStatus"=dword:00000003
+</code></pre>
+<p>Administrative command version:</p>
+<pre><code class="language-windowsbatch">reg add "HKEY_CURRRENT_USER\Software\Microsoft\CTF\LangBar" /v ShowStatus /d 3 /t REG_DWORD /f
+</code></pre>
+<p>Source: <a href="http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/">http://www.microsoftpro.nl/2011/02/24/windows-2008-r2-language-bar-keeps-changing-keyboard-settings/</a></p>
 
 
-
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2016-05-22-the-hell-of-automatic-keyboards-on.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -170,39 +181,96 @@
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -224,16 +292,11 @@
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

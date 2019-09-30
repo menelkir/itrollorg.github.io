@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -80,25 +116,162 @@
   <b>
   
   
-    less than 1 min read time
+    2 mins read time
   
   </b>
 
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">AIX</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#ibm">
+      <span class="tag badge badge-pill text-primary border border-primary">IBM</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#aix">
+      <span class="tag badge badge-pill text-primary border border-primary">AIX</span>
+    </a>
     
   
 
 </p>
 
-Just some pre-req that I do in my AIX installations (I use some necessary Oracle reqs, just in case):<br />Ok.. just a warning, use at your own risk (all tunings are oracle and ibm based, so I'm not responsible if you mess the things up). After that, ask your customer for some different tunings, if needed.<br /><br />1) Verifications<br /><br />Gather all necessary information, such network configuration and partition configuration (if any specified) to accelerate the process.<br />Verify connections, cables, plug everything and take a look if display some error codes.<br />Verify if will be necessary some activation after the start-up process.<br /><br />2) Install options<br /><br />&nbsp;&nbsp;&nbsp; ON Trusted Computing Base<br />&nbsp;&nbsp;&nbsp; OFF CAPP e EAL4+ Technology<br />&nbsp;&nbsp;&nbsp; ON 64-bit Kernel<br />&nbsp;&nbsp;&nbsp; ON JFS2 File Systems<br />&nbsp;&nbsp;&nbsp; ON Graphics Software<br />&nbsp;&nbsp;&nbsp; OFF System backups to install in any device.<br /><br />3) Packages<br /><br />* Bundles: Server, App-Dev and Perfstat<br />* Extras: Openssh server and client<br />* Extra-packages:&nbsp; bos.adt.base, bos.adt.lib, bos.adt.libm, bos.cifs_fs.rte, bos.perf.libperfstat, bos.perf.perfstat, bos.perf.proctools<br /><br />4) Filesystem options<br /><br />* Mirror rootvg: <br /><br /># bosboot -B hdisk1<br /># extendvg rootvg hdisk1<br /># mirrorvg -m rootvg hdisk1<br /># bosboot -a<br /># bootlist -m normal hdisk0 hdisk1<br /><br />* Resize all filesystems like table below<br /><br />/ 1Gb<br />/usr 2Gb<br />/var 1Gb<br />/tmp 1Gb<br />/home 500Mb<br />swap 12Gb<br /><br />5) OS Parameters<br /><br />* AIO<br />min=10 and max=30<br /><br />* VMO<br />minperm%=5<br />maxclient%=90<br />maxperm%=90<br />minfree=960<br />maxfree=1088<br /><br />* IOO<br />sync_release_ilock=1<br /><br />* Change limits for default users file = -1<br />cpu = -1<br />data = -1<br />stack = -1<br />nofile = 65536<br />data = 256k stack = 256k<br />memory = 256k<br /><br />* Change the limit for usernames <br />chdev −l sys0 −a max_logname=18<br /><br />* Set ISNO for network cards <br />no -b -o use_isno=1<br /><br />* Large Page size <br />vmo -r -o lgpg_regions=256 -o lgpg_size=16777216<br />vmo -r -o lru_file_repage=0<br /><br />* Maxuproc <br />chdev -lsys0 -a maxuproc='4096'<br /><br />* Jumbo frames <br />smit chgenet<br /><br />...reboot.
+<p>Just some pre-req that I do in my AIX installations (I use some necessary Oracle reqs, just in case):
+Ok.. just a warning, use at your own risk (all tunings are oracle and ibm based, so I’m not responsible if you mess the things up). After that, ask your customer for some different tunings, if needed.</p>
+
+<h5 id="1-verifications">1. Verifications</h5>
+
+<p>Gather all necessary information, such network configuration and partition configuration (if any specified) to accelerate the process.
+Verify connections, cables, plug everything and take a look if display some error codes.
+Verify if will be necessary some activation after the start-up process.</p>
+
+<h5 id="2-install-options">2. Install options</h5>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ON Trusted Computing Base
+OFF CAPP e EAL4+ Technology
+ON 64-bit Kernel
+ON JFS2 File Systems
+ON Graphics Software
+OFF System backups to install in any device.
+</code></pre></div></div>
+<h5 id="3-packages">3. Packages</h5>
+
+<ul>
+  <li>Bundles:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server
+App-Dev
+Perfstat
+</code></pre></div>    </div>
+  </li>
+  <li>Extras:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Openssh server 
+Openssh client
+</code></pre></div>    </div>
+  </li>
+  <li>Extra-packages:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bos.adt.base
+bos.adt.lib
+bos.adt.libm
+bos.cifs_fs.rte
+bos.perf.libperfstat
+bos.perf.perfstat
+bos.perf.proctools
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="4-filesystem-options">4. Filesystem options</h4>
+
+<ul>
+  <li>Mirror rootvg:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bosboot -B hdisk1
+extendvg rootvg hdisk1
+mirrorvg -m rootvg hdisk1
+bosboot -a
+bootlist -m normal hdisk0 hdisk1
+</code></pre></div>    </div>
+  </li>
+  <li>Resize all filesystems like table below</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>/</td>
+      <td>1Gb</td>
+    </tr>
+    <tr>
+      <td>/usr</td>
+      <td>2Gb</td>
+    </tr>
+    <tr>
+      <td>/var</td>
+      <td>1Gb</td>
+    </tr>
+    <tr>
+      <td>/tmp</td>
+      <td>1Gb</td>
+    </tr>
+    <tr>
+      <td>/home</td>
+      <td>500Mb</td>
+    </tr>
+    <tr>
+      <td>swap</td>
+      <td>12Gb</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="5-os-parameters">5. OS Parameters</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>AIO</td>
+      <td>* min=10<br />* max=30</td>
+    </tr>
+    <tr>
+      <td>VMO</td>
+      <td>* minperm%=5<br />* maxclient%=90<br />* maxperm%=90<br />* minfree=960<br />* maxfree=1088</td>
+    </tr>
+    <tr>
+      <td>IOO</td>
+      <td>* sync_release_ilock=1</td>
+    </tr>
+    <tr>
+      <td>Change limits for default users</td>
+      <td>* file = -1<br />* cpu = -1<br />* data = -1<br />* stack = -1<br />* nofile = 65536<br />* data = 256k<br />* stack = 256k<br />* memory = 256k</td>
+    </tr>
+    <tr>
+      <td>Change the limit for usernames</td>
+      <td>* chdev −l sys0 −a max_logname=18</td>
+    </tr>
+    <tr>
+      <td>Set ISNO for network cards</td>
+      <td>* no -b -o use_isno=1</td>
+    </tr>
+    <tr>
+      <td>Large Page size</td>
+      <td>* vmo -r -o lgpg_regions=256 -o lgpg_size=16777216<br /> * vmo -r -o lru_file_repage=0</td>
+    </tr>
+    <tr>
+      <td>Maxuproc</td>
+      <td>chdev -lsys0 -a maxuproc=’4096’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6-set-jumbo-frames">6. Set Jumbo frames</h4>
+<p>smit chgenet</p>
+
+<h4 id="7-reboot">7. Reboot.</h4>
 
 
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2009-08-27-aix-instalation-pre-req-53-and-61.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -112,39 +285,96 @@ Just some pre-req that I do in my AIX installations (I use some necessary Oracle
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -166,16 +396,11 @@ Just some pre-req that I do in my AIX installations (I use some necessary Oracle
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

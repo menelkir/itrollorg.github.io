@@ -13,9 +13,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Daniel Menelkir">
+  <meta name="description" content="Daniel Menelkir ">
 
-  <title>Daniel Menelkir</title>
+  <title>Welcome to ITroll.org</title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
   <!-- Font Awesome CDN -->
@@ -38,7 +38,7 @@
   <main class="flex-shrink-0 container mt-5">
   <nav class="navbar navbar-expand-lg navbar-light">
 
-  <a class="navbar-brand" href="//"><h5><b>Daniel Menelkir</b></h5></a>
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,19 +53,55 @@
         
       
         
-          <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
         
       
         
-          <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
         
       
     </div>
@@ -87,27 +123,48 @@
   <br>
 
   
-    Tags:
+    Tags: 
     
-      <span class="badge badge-pill text-primary border border-primary">Linux</span>
+    <a class="text-decoration-none no-underline" href="/articles/tags#debian">
+      <span class="tag badge badge-pill text-primary border border-primary">Debian</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#linux">
+      <span class="tag badge badge-pill text-primary border border-primary">Linux</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#recomendations">
+      <span class="tag badge badge-pill text-primary border border-primary">Recomendations</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#exherbo">
+      <span class="tag badge badge-pill text-primary border border-primary">Exherbo</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#archlinux">
+      <span class="tag badge badge-pill text-primary border border-primary">ArchLinux</span>
+    </a>
     
   
 
 </p>
 
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp; If you are struggled with a distro with systemd for a random reason, you can fix this dumb nonsense of network devices with this command:</span></span><br />
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><br /></span></span>
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">ln -s /dev/null /etc/systemd/network/99-default.link</span></span></span><br />
-<span style="font-family: Arial, Helvetica, sans-serif;"><br /></span>
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;&nbsp; I don't know what will break doing this, but since I'm testing this crap using a VM, I don't really care (but you should, so beware where are you doing this). I've tes<span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">ted on Debian and <span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Arch.</span></span></span></span></span></span><br />
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp; &nbsp;&nbsp; <a href="https://lists.debian.org/debian-user/2017/06/msg01045.html" target="_blank">Some people reported</a> that most problems with network manager can be fixed when doing this.&nbsp;</span></span></span></span><br />
-<span style="font-family: Arial, Helvetica, sans-serif;"><br /></span>
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">Update: You can also fix this in non-systemd distros using this in your boot:&nbsp;</span></span></span></span><br />
-<span style="font-family: Arial, Helvetica, sans-serif;"><br /></span>
-<span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;">&nbsp;</span></span></span><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">net.ifnames=0 biosdevname=0</span></span></span>
+<p>If you are struggled with a distro with systemd for a random reason, you can fix this dumb nonsense of network devices with this command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln -s /dev/null /etc/systemd/network/99-default.link
+</code></pre></div></div>
+
+<p>I don’t know what will break doing this, but since I’m testing this using a VM, I don’t really care (but you should, so beware where are you doing this). I’ve tested on Debian and Arch.
+<a href="https://lists.debian.org/debian-user/2017/06/msg01045.html">Some people reported</a> that most problems with network manager can be fixed when doing this.</p>
+
+<p>Update: You can also fix this in non-systemd distros using this in your boot:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>net.ifnames=0 biosdevname=0
+</code></pre></div></div>
 
 
-
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2017-10-12-fixing-network-device-names.md">GitHub</a>.
+</footer>
 </div>
   </main>
 
@@ -121,39 +178,96 @@
   <div class="container-fluid justify-content-center">
 
   
-  <a class="social twitter mx-1" href="https://www.twitter.com/menelkir">
-    <i class="fab fa-1x fa-twitter"></i>
-  </a>
-  
 
   
-  <a class="social email mx-1" href="mailto:menelkir@itroll.org">
-    <i class="fas fa-1x fa-envelope"></i>
-  </a>
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
   
-  <a class="social github mx-1" href="https://www.github.com/menelkir">
-    <i class="fab fa-1x fa-github"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
   
-  <a class="social gitlab mx-1" href="https://www.gitlab.com/menelkir">
-    <i class="fab fa-1x fa-gitlab"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
   
-  <a class="social blog mx-1" href="https://menelkir.itroll.org">
-    <i class="fab fa-1x fa-blogger"></i>
-  </a>
   
 
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
   
 
 </div>
-
 
 </footer>
   <!-- GitHub Buttons -->
@@ -175,16 +289,11 @@
 <!-- Card Animation jQuery -->
 <script src="/assets/js/card-animation.js"></script>
 
-<!-- Simple-Jekyll-Search CDN -->
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<!-- Initialize all tooltips -->
 <script>
-  var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
-        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
-        noResultsText: '<li class="list-group-item">No results found</li>',
-        json: '/search.json'
-      })
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 
 </body>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Menelkir ">
+
+  <title>Welcome to ITroll.org</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Welcome to ITroll.org</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /projects/ ">Projects</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link  active " href=" /articles/ ">Articles</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /about/ ">About</a>
+          
+        
+      
+        
+          
+            <a class="nav-item nav-link " href=" /skills/ ">Skills</a>
+          
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>Android tunings</b></h1>
+
+<p class="article-metadata text-muted">
+  29 May 2012 -  
+  <b>
+  
+  
+    3 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/articles/tags#android">
+      <span class="tag badge badge-pill text-primary border border-primary">Android</span>
+    </a>
+    
+  
+
+</p>
+
+<p>If you don’t know what this means, it’s not for you.</p>
+
+<p>/system/build.prop</p>
+
+<h4 id="1-network">1. Network</h4>
+
+<p>Sometimes you feel your device a little “clumsy” depending your connection. I really don’t know why this happens. For example, at home my wifi is ok, but in some others is different (with same routers). Or even worse, some differences from carrier to carrier, and I’m not talking about latency (and don’t start talking about android quality of connection because I’ve already feel the same using an iPad).
+Sometimes.. you know.. if you doesn’t use a custom rom because you really believe that the manufacturer knows what is the best for your phone, I’m really sorry for you.
+This settings will give you a little more latency, you need a little test to see if fits for you.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960 
+net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960 
+net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960 
+net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+</code></pre></div></div>
+<h4 id="2-image-related">2. Image related</h4>
+
+<p>Some manufacturers thinks you like this type of garbage, you can optimize this:
+This one give the full quality for jpeg images (yes, sometimes you’re not using what your device is capable):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ro.media.enc.jpeg.quality=100
+</code></pre></div></div>
+
+<p>Disable this, unless you like the red borders for strict applications</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>persist.sys.strictmode.disable=1
+</code></pre></div></div>
+<p>Render UI with GPU (yes, sometimes isn’t turned on)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>debug.sf.hw = 1
+</code></pre></div></div>
+<p>Improve the scrolling response</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>windowsmgr.max_events_per_sec = 120
+</code></pre></div></div>
+<p>Disables the surface dithering (if enable will improve image quality, at cpu cost)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>persist.sys.use_dithering = 0
+</code></pre></div></div>
+<p>Use hardware acceleration to render videos.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>video.accelerate.hw=1
+</code></pre></div></div>
+<h4 id="3-battery-related">3. Battery Related</h4>
+
+<p>Do you know about governors right? I you know all manufacturers (including sw ones like google, unfortunately) thinks no one needs a DECENT governor on your device, so your battery will sucks big time.
+There’s some types of governors for almost all devices that you HUGE increase the battery life without making your device a garbage, like smartassV2, interactiveX and Drewi’s ondemand. but… if you don’t use a custom rom and thinks that your manufacturer is the god of devices, just stop reading already :D.
+You have a custom kernel with a custom governor? Good! Did you use smartassV2? Very good. Now some minor tunings.</p>
+
+<p>Decrease the scan time of the wifi (will not hurt):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wifi.supplicant_scan_interval=150
+</code></pre></div></div>
+<p>This will improve the “deep sleep”, but depends on kernel in some way</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ro.ril.disable.power.collapse=0
+</code></pre></div></div>
+<p>Increase battery saving</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pm.sleep_mode = 1
+</code></pre></div></div>
+
+<p>/data/local.prop</p>
+
+<p>Based on supercharger script (because not all supercharger script settings are good to everyone, Ive filtered the best compatible options):
+Define the OOM adj values for the classes of processes that can be killed by kernel.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ro.FOREGROUND_APP_ADJ=0
+ro.VISIBLE_APP_ADJ=3 
+ro.SECONDARY_SERVER_ADJ=5 
+ro.BACKUP_APP_ADJ=6 
+ro.HOME_APP_ADJ=1 
+ro.HIDDEN_APP_MIN_ADJ=7 
+ro.CONTENT_PROVIDER_ADJ=8 
+ro.EMPTY_APP_ADJ=15
+</code></pre></div></div>
+
+<p>Define the memory threesholds at which the above process classes will be killed</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ro.FOREGROUND_APP_MEM=1536 
+ro.VISIBLE_APP_MEM=2048 
+ro.SECONDARY_SERVER_MEM=6144 
+ro.BACKUP_APP_MEM=6656 
+ro.HOME_APP_MEM=1024 
+ro.HIDDEN_APP_MEM=6656 
+ro.CONTENT_PROVIDER_MEM=7168 
+ro.EMPTY_APP_MEM=7680
+</code></pre></div></div>
+
+<p>init.d Scripts</p>
+
+<p>Of course, your ROM must support init.d scripts</p>
+
+<p>/etc/init.d/03kernel:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/system/bin/sh</span>
+<span class="nb">echo</span> <span class="s2">"3"</span> <span class="o">&gt;</span> /proc/sys/vm/drop_caches
+<span class="nb">echo</span> <span class="s2">"20"</span> <span class="o">&gt;</span> /proc/sys/vm/swappiness
+<span class="nb">echo</span> <span class="s2">"15"</span> <span class="o">&gt;</span> /proc/sys/vm/dirty_ratio
+<span class="nb">echo</span> <span class="s2">"70"</span> <span class="o">&gt;</span> /proc/sys/vm/vfs_cache_pressure
+<span class="nb">echo</span> <span class="s2">"3000"</span> <span class="o">&gt;</span> /proc/sys/vm/dirty_expire_centisecs
+<span class="nb">echo</span> <span class="s2">"500"</span> <span class="o">&gt;</span> /proc/sys/vm/dirty_writeback_centisecs
+<span class="nb">echo</span> <span class="s2">"3"</span> <span class="o">&gt;</span> /proc/sys/vm/dirty_background_ratio
+<span class="nb">echo</span> <span class="s2">"2048,4096,51200,56320,61440,70400"</span> <span class="o">&gt;</span> /sys/module/lowmemorykiller/parameters/minfree
+<span class="nb">echo</span> <span class="s2">"veno"</span> <span class="o">&gt;</span> /proc/sys/net/ipv4/tcp_congestion_control
+</code></pre></div></div>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve it on <a href="https://github.com/Menelkir/itrollorg.github.io/edit/gh-pages/_posts/2012-05-29-android-tunings.md">GitHub</a>.
+</footer>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>Daniel Menelkir</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center">
+
+  
+
+  
+
+    
+    
+      
+
+    
+    
+      
+
+    
+    
+
+    
+    <a class="social mx-1"  href="mailto:menelkir@itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.github.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.gitlab.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#fca326'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-gitlab fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.instagram.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#405de6'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-instagram fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://www.twitter.com/menelkir"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a>
+  
+  
+
+    
+    
+
+    
+    <a class="social mx-1"  href="https://menelkir.itroll.org"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-blogger fa-1x"></i>
+    </a>
+  
+  
+
+</div>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/assets/js/card-animation.js"></script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>
